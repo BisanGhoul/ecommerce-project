@@ -1,0 +1,32 @@
+/* OptionalFields.css */
+.optional-fields-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px; /* Adjust this based on the AppBar height */
+  }
+  
+  .optional-fields-form-box {
+    width: 100%;
+    max-width: 400px;
+
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc; /* Adjust the border as needed */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9; /* Adjust the background color */
+  }
+  
+  .input-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .input-field {
+    width: 100%; /* Full width */
+    margin-bottom: 16px; /* Space between inputs */
+  }
+  
