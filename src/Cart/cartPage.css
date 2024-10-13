@@ -1,50 +1,32 @@
-.signup-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 80px; /* Adjust this based on the AppBar height */
-  }
-  
-  .signup-form-box {
-    width: 100%;
-    max-width: 400px;
+.cart {
+    max-width: 600px;
+    margin: auto;
     padding: 20px;
-    padding-top: 10px;
-    background-color: white;
-    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.288);
-    border-radius: 8px;
-  } 
-  
-  .input-label {
-    display: block;
-    margin-bottom: 8px; /* Space between label and input */
-    font-weight: bold; /* Makes the label text bold */
-  }
-  
-  .input-field {
-    width: 100%;
-    margin-bottom: 16px; /* Space between fields */
-    border: 1px solid #ccc; /* Default border */
-    transition: border-color 0.3s ease; /* Smooth transition for border color */
-  }
-  
-  .input-field:focus {
-    border-color: grey; /* Change border color to grey when focused */
-  }
-    
-  .input-field:active {
-    border-color: rgb(26, 23, 23); /* Change border color to grey when focused */
-  }
-  
-  .signup-button {
-    background-color: black; /* Button color */
-    color: white; /* Button text color */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-  }
-  
-  .signup-button:hover {
-    background-color: grey; /* Darker shade on hover */
-  }
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-  
-  
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
