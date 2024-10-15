@@ -5,10 +5,18 @@ import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { Container } from '@mui/material';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+
+
+
+import { Container, Link } from '@mui/material';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const Header = () => {
+  const navigate = useNavigate();
+  function cartClick () {
+    navigate('/cart'); // Replace with your actual route
+  }
+
   return (
     <AppBar position="fixed" sx={{ backgroundColor: 'black' }}>
       <Container maxWidth="xl">
@@ -42,7 +50,7 @@ const Header = () => {
             </IconButton>
             <IconButton color="inherit">
               <Badge badgeContent={1} color="error">
-                <ShoppingCartIcon />
+                <ShoppingCartIcon onClick = {cartClick} />
               </Badge>
             </IconButton>
             <IconButton color="inherit">
