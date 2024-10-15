@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './header/Header';
+import Header from '../header/Header';
 import { Grid, Box, Typography, Button, Select, MenuItem, InputLabel, FormControl, IconButton } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
