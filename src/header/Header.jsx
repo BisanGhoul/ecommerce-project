@@ -5,6 +5,9 @@ import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
+
+
 import { Container, Link } from '@mui/material';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
@@ -27,13 +30,13 @@ const Header = () => {
 
           {/* Links in the middle */}
           <div style={{ display: 'flex', flexGrow: 1, justifyContent: 'center' }}>
-            <Link href="#" color="inherit" style={{ margin: '0 16px' }}>
-              About us
+            <Link to="/about" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
+              About Us
             </Link>
-            <Link href="#" color="inherit" style={{ margin: '0 16px' }}>
-              Contact US
+            <Link to="/contact" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
+              Contact Us
             </Link>
-            <Link href="#" color="inherit" style={{ margin: '0 16px' }}>
+            <Link to="/products" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
               Products
             </Link>
           </div>
