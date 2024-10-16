@@ -14,7 +14,10 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 const Header = () => {
   const navigate = useNavigate();
   function cartClick () {
-    navigate('/cart'); // Replace with your actual route
+    navigate('/cart');
+  }
+  function profileClick () {
+    navigate('/profile');
   }
 
   return (
@@ -54,7 +57,7 @@ const Header = () => {
               </Badge>
             </IconButton>
             <IconButton color="inherit">
-              <AccountCircleIcon />
+              <AccountCircleIcon onClick = {profileClick}/>
             </IconButton>
           </div>
         </div>
