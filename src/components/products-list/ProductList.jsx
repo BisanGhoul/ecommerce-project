@@ -49,8 +49,6 @@ const ProductListing = () => {
 
   return (
     <>
-      <Header />
-
       <Box display="flex" padding={2} mt={10}>
         {/* Sidebar Filters */}
         <Box

@@ -6,9 +6,18 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Container } from '@mui/material';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { useNavigate, Link } from 'react-router-dom'; 
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  function cartClick () {
+    navigate('/cart');
+  }
+  function profileClick () {
+    navigate('/profile');
+  }
+
   return (
     <AppBar position="fixed" sx={{ backgroundColor: 'black' }}>
       <Container maxWidth="xl">
@@ -22,10 +31,10 @@ const Header = () => {
 
           {/* Links in the middle */}
           <div style={{ display: 'flex', flexGrow: 1, justifyContent: 'center' }}>
-            <Link to="/about" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
+            <Link to="/about-us" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
               About Us
             </Link>
-            <Link to="/contact" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
+            <Link to="/contact-us" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
               Contact Us
             </Link>
             <Link to="/products" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
@@ -46,7 +55,7 @@ const Header = () => {
               </Badge>
             </IconButton>
             <IconButton color="inherit">
-              <AccountCircleIcon />
+                <AccountCircleIcon onClick = {profileClick}/> 
             </IconButton>
           </div>
         </div>

@@ -1,34 +1,60 @@
-import React from 'react';
 import { Box, Button, TextField, MenuItem, Grid } from '@mui/material';
 import { useForm, Controller } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import './SignUp.css';  // Import the CSS file
-import Header from '../header/Header';
+import { useNavigate } from 'react-router-dom'; 
+import Header from '../header/Header.jsx';
 
 const SignUp = () => {
   const { handleSubmit, control, watch, formState: { errors } } = useForm();
-  const password = watch('password'); // To compare passwords
-  const navigate = useNavigate(); // Initialize the navigate function
+  const password = watch('password');
+  const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    console.log(data); // For now, just log the form data
-    // After successful submission, navigate to the optional fields
-    navigate('/optional-fields'); // Replace with your actual route
+  const onSubmit =  async (data) => {
+    try {
+      navigate('/sign-up/payment', {state:data});
+    } catch (error) {
+      console.error('Error during signup:', error);
+      alert('There was an error signing up.');
+    }
   };
 
   return (
     <>
-      <Header />
-      <Box className="signup-container">
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          marginTop: '80px',
+        }}
+      >
         {/* Registration Form */}
-        <Box className="signup-form-box">
+        <Box
+          sx={{
+            width: '100%',
+            maxWidth: '400px',
+            padding: '20px',
+            paddingTop: '10px',
+            backgroundColor: 'white',
+            boxShadow: '2px 4px 8px rgba(0, 0, 0, 0.288)',
+            borderRadius: '8px',
+          }}
+        >
           <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <h1>Sign Up</h1>
               </Grid>
+
               <Grid item xs={12}>
-                <label className="input-label">First Name</label>
+                <label
+                  style={{
+                    display: 'block',
+                    marginBottom: '8px',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  First Name
+                </label>
                 <Controller
                   name="firstName"
                   control={control}
@@ -41,7 +67,7 @@ const SignUp = () => {
                   }}
                   render={({ field }) => (
                     <TextField
-                      className="input-field"
+                      fullWidth
                       error={!!errors.firstName}
                       helperText={errors.firstName?.message}
                       {...field}
@@ -51,7 +77,15 @@ const SignUp = () => {
               </Grid>
 
               <Grid item xs={12}>
-                <label className="input-label">Last Name</label>
+                <label
+                  style={{
+                    display: 'block',
+                    marginBottom: '8px',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Last Name
+                </label>
                 <Controller
                   name="lastName"
                   control={control}
@@ -64,7 +98,7 @@ const SignUp = () => {
                   }}
                   render={({ field }) => (
                     <TextField
-                      className="input-field"
+                      fullWidth
                       error={!!errors.lastName}
                       helperText={errors.lastName?.message}
                       {...field}
@@ -74,7 +108,15 @@ const SignUp = () => {
               </Grid>
 
               <Grid item xs={12}>
-                <label className="input-label">Email</label>
+                <label
+                  style={{
+                    display: 'block',
+                    marginBottom: '8px',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Email
+                </label>
                 <Controller
                   name="email"
                   control={control}
@@ -85,7 +127,7 @@ const SignUp = () => {
                   }}
                   render={({ field }) => (
                     <TextField
-                      className="input-field"
+                      fullWidth
                       error={!!errors.email}
                       helperText={errors.email?.message}
                       {...field}
@@ -95,7 +137,15 @@ const SignUp = () => {
               </Grid>
 
               <Grid item xs={12}>
-                <label className="input-label">Password</label>
+                <label
+                  style={{
+                    display: 'block',
+                    marginBottom: '8px',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Password
+                </label>
                 <Controller
                   name="password"
                   control={control}
@@ -106,7 +156,7 @@ const SignUp = () => {
                   }}
                   render={({ field }) => (
                     <TextField
-                      className="input-field"
+                      fullWidth
                       type="password"
                       error={!!errors.password}
                       helperText={errors.password?.message}
@@ -117,7 +167,15 @@ const SignUp = () => {
               </Grid>
 
               <Grid item xs={12}>
-                <label className="input-label">Confirm Password</label>
+                <label
+                  style={{
+                    display: 'block',
+                    marginBottom: '8px',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Confirm Password
+                </label>
                 <Controller
                   name="confirmPassword"
                   control={control}
@@ -128,7 +186,7 @@ const SignUp = () => {
                   }}
                   render={({ field }) => (
                     <TextField
-                      className="input-field"
+                      fullWidth
                       type="password"
                       error={!!errors.confirmPassword}
                       helperText={errors.confirmPassword?.message}
@@ -139,7 +197,15 @@ const SignUp = () => {
               </Grid>
 
               <Grid item xs={12}>
-                <label className="input-label">Gender</label>
+                <label
+                  style={{
+                    display: 'block',
+                    marginBottom: '8px',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Gender
+                </label>
                 <Controller
                   name="sex"
                   control={control}
@@ -149,7 +215,7 @@ const SignUp = () => {
                   }}
                   render={({ field }) => (
                     <TextField
-                      className="input-field"
+                      fullWidth
                       select
                       error={!!errors.sex}
                       helperText={errors.sex?.message}
@@ -162,11 +228,15 @@ const SignUp = () => {
                 />
               </Grid>
 
-              {/* Combined Button for Submission and Navigation */}
               <Grid item xs={12}>
                 <Button
-                  sx={{ backgroundColor: 'black' }}
-                  className="signup-button"
+                  sx={{
+                    backgroundColor: 'black',
+                    color: 'white',
+                    '&:hover': {
+                      backgroundColor: 'grey',
+                    },
+                  }}
                   variant="contained"
                   fullWidth
                   type="submit"

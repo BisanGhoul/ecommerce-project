@@ -1,36 +1,69 @@
-import React from 'react';
-import { Box, Button, TextField, Grid } from '@mui/material';
+import SignupService from '../../services/signup.service';
+import { Box, Button, TextField, Grid, Typography } from '@mui/material';
 import { useForm, Controller } from 'react-hook-form';
+import { useNavigate, useLocation } from 'react-router-dom'; 
+
 import Header from '../header/Header';
-import './OptionalFields.css'; // Create a CSS file for styles
 
 const OptionalFields = () => {
   const { handleSubmit, control, formState: { errors } } = useForm();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const onSubmit = (data) => {
-    console.log(data); // Log the optional data for now
+  const onSubmit = async (data) => {
+    try{
+
+    const basicUserData = location.state;
+    const userData = {...basicUserData,...data};
+    console.log("User Info:"+userData); 
+    const response = await SignupService.signup(userData);
+    console.log("response:"+response); 
+    navigate('/home');
+
+    }catch(err){
+      console.log(err);
+    }
   };
 
   return (
     <>
-      <Header />
-      <Box className="optional-fields-container">
-        <Box className="optional-fields-form-box">
+      <Box
+        sx={{
+          padding: '20px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          marginTop: '80px',
+        }}
+      >
+        <Box
+          sx={{
+            width: '100%',
+            maxWidth: '400px',
+            marginTop: '20px',
+            padding: '20px',
+            border: '1px solid #ccc',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+            backgroundColor: '#f9f9f9',
+          }}
+        >
           <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container spacing={2}>
               {/* Address Book Fields */}
               <Grid item xs={12}>
-                <h3>Address Book</h3>
+                <Typography variant="h6">Address Book</Typography>
               </Grid>
+
               <Grid item xs={12}>
-                <label className="input-label">Street Address</label>
                 <Controller
                   name="streetAddress"
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
                     <TextField
-                      className="input-field"
+                      fullWidth
+                      label="Street Address"
                       error={!!errors.streetAddress}
                       helperText={errors.streetAddress?.message}
                       {...field}
@@ -38,15 +71,16 @@ const OptionalFields = () => {
                   )}
                 />
               </Grid>
+
               <Grid item xs={12}>
-                <label className="input-label">City</label>
                 <Controller
                   name="city"
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
                     <TextField
-                      className="input-field"
+                      fullWidth
+                      label="City"
                       error={!!errors.city}
                       helperText={errors.city?.message}
                       {...field}
@@ -54,15 +88,16 @@ const OptionalFields = () => {
                   )}
                 />
               </Grid>
+
               <Grid item xs={12}>
-                <label className="input-label">Postal Code</label>
                 <Controller
                   name="postalCode"
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
                     <TextField
-                      className="input-field"
+                      fullWidth
+                      label="Postal Code"
                       error={!!errors.postalCode}
                       helperText={errors.postalCode?.message}
                       {...field}
@@ -70,15 +105,16 @@ const OptionalFields = () => {
                   )}
                 />
               </Grid>
+
               <Grid item xs={12}>
-                <label className="input-label">Country</label>
                 <Controller
                   name="country"
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
                     <TextField
-                      className="input-field"
+                      fullWidth
+                      label="Country"
                       error={!!errors.country}
                       helperText={errors.country?.message}
                       {...field}
@@ -86,15 +122,16 @@ const OptionalFields = () => {
                   )}
                 />
               </Grid>
+
               <Grid item xs={12}>
-                <label className="input-label">Phone Number</label>
                 <Controller
                   name="phoneNumber"
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
                     <TextField
-                      className="input-field"
+                      fullWidth
+                      label="Phone Number"
                       error={!!errors.phoneNumber}
                       helperText={errors.phoneNumber?.message}
                       {...field}
@@ -105,17 +142,18 @@ const OptionalFields = () => {
 
               {/* Payment Information Fields */}
               <Grid item xs={12}>
-                <h3>Payment Information</h3>
+                <Typography variant="h6">Payment Information</Typography>
               </Grid>
+
               <Grid item xs={12}>
-                <label className="input-label">Credit/Debit Card Number</label>
                 <Controller
                   name="cardNumber"
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
                     <TextField
-                      className="input-field"
+                      fullWidth
+                      label="Credit/Debit Card Number"
                       error={!!errors.cardNumber}
                       helperText={errors.cardNumber?.message}
                       {...field}
@@ -123,15 +161,16 @@ const OptionalFields = () => {
                   )}
                 />
               </Grid>
+
               <Grid item xs={12}>
-                <label className="input-label">Expiration Date (MM/YY)</label>
                 <Controller
                   name="expirationDate"
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
                     <TextField
-                      className="input-field"
+                      fullWidth
+                      label="Expiration Date (MM/YY)"
                       error={!!errors.expirationDate}
                       helperText={errors.expirationDate?.message}
                       {...field}
@@ -139,15 +178,16 @@ const OptionalFields = () => {
                   )}
                 />
               </Grid>
+
               <Grid item xs={12}>
-                <label className="input-label">CVV</label>
                 <Controller
                   name="cvv"
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
                     <TextField
-                      className="input-field"
+                      fullWidth
+                      label="CVV"
                       error={!!errors.cvv}
                       helperText={errors.cvv?.message}
                       {...field}
@@ -155,15 +195,16 @@ const OptionalFields = () => {
                   )}
                 />
               </Grid>
+
               <Grid item xs={12}>
-                <label className="input-label">Name on Card</label>
                 <Controller
                   name="nameOnCard"
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
                     <TextField
-                      className="input-field"
+                      fullWidth
+                      label="Name on Card"
                       error={!!errors.nameOnCard}
                       helperText={errors.nameOnCard?.message}
                       {...field}
@@ -174,10 +215,20 @@ const OptionalFields = () => {
 
               {/* Continue and Skip Button */}
               <Grid item xs={12}>
-                <Button variant="contained" sx={{ backgroundColor: 'black' }} type="submit">
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: 'black',
+                    color: 'white',
+                    '&:hover': {
+                      backgroundColor: 'grey',
+                    },
+                  }}
+                  fullWidth
+                  type="submit"
+                >
                   Sign Up
                 </Button>
-              
               </Grid>
             </Grid>
           </form>
