@@ -54,7 +54,7 @@ const Cart = () => {
                                 </td>
                                 <td>${(item.price * item.quantity).toFixed(2)}</td>
                                 <td>
-                                    <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
+                                    <Button onClick={() => handleRemoveItem(item.id)}>Remove</Button>
                                 </td>
                             </tr>
                         ))}
@@ -62,7 +62,7 @@ const Cart = () => {
                 </table>
             )}
             <h2>Total Amount: ${getTotalAmount().toFixed(2)}</h2>
-            <button onClick={() => alert('Proceeding to checkout...')}>Checkout</button>
+            <Button onClick={() => alert('Proceeding to checkout...')}>Checkout</Button>
         </div>
       </div>
     );
