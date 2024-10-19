@@ -1,164 +1,130 @@
-import { Box, Button, TextField, Grid, Typography } from '@mui/material';
-
-
+import React, { useState } from 'react';
+import { Box, Typography, TextField, Button, InputAdornment } from '@mui/material';
+import { AccountCircle, Email, Phone } from '@mui/icons-material';
 
 const ContactUs = () => {
-    return (
-        <Box
-          sx={{
-            display: 'flex',
-            height: '100vh',
-          }}
-        >
-          <Box
-            sx={{
-              flex: 1,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              backgroundColor: '#F4DFD0',
-              padding: '20px 50px',
-            }}
-          >
-            <header
-              sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
-            >
-              <Typography
-                variant="h4"
-                sx={{
-                  fontFamily: 'Brush Script MT, cursive',
-                  color: '#b9774f',
-                }}
-              >
-                ChicVibe
-              </Typography>
-              <div>
-      {['About', 'Contact', 'Card', 'Favorite'].map((link) => (
-        <span
-          key={link}
-          onClick={() => console.log(`${link} clicked`)} 
-          style={{
-            cursor: 'pointer',
-            textDecoration: 'none',
-            color: '#333',
-            margin: '0 15px',
-            textTransform: 'uppercase',
-            fontSize: '14px',
-          }}
-        >
-          {link}
-        </span>
-      ))}
-    
-      <Button
-        variant="contained"
-        onClick={() => console.log('Log in clicked')} 
-        sx={{
-          backgroundColor: '#b9774f',
-          color: '#fff',
-          textTransform: 'uppercase',
-          borderRadius: '5px',
-          padding: '10px 20px',
-          marginLeft: '20px',
-        }}
-      >
-        Log in
-      </Button>
-    </div>
-            </header>
-            <Box
-              sx={{
-                flex: 1,
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: '50px',
-              }}
-            >
-              <Box
-                sx={{
-                  backgroundColor: '#f8ede4',
-                  padding: '40px',
-                  width: '100%',
-                  boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-                }}
-              >
-                <Typography
-                  variant="h1"
-                  sx={{
-                    fontFamily: 'Brush Script MT, cursive',
-                    color: '#b9774f',
-                    fontSize: '42px',
-                  }}
-                >
-                  Hey, ChicVibe!
-                </Typography>
-                <Typography
-                  sx={{
-                    color: '#333',
-                    fontSize: '18px',
-                    fontFamily: 'Georgia, Times, serif',
-                    lineHeight: 1.6,
-                    margin: '20px 0',
-                  }}
-                >
-                  Need more hours to have a shopping in your day?
-                </Typography>
-                <Typography
-                  sx={{
-                    color: '#333',
-                    fontSize: '18px',
-                    fontFamily: 'Georgia, Times, serif',
-                    lineHeight: 1.6,
-                    margin: '20px 0',
-                  }}
-                >
-                  Stylish and fashionable with a modern, trendy, and youthful feel.!
-                </Typography>
-                <Button
-                  className="learn-more-button"
-                  sx={{
-                    backgroundColor: '#d68c6a',
-                    color: '#fff',
-                    padding: '10px 20px',
-                    borderRadius: '5px',
-                    cursor: 'pointer',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  Sign up
-                </Button>
-              </Box>
-            </Box>
-          </Box>
-          <Box
-            sx={{
-              width: '45vw',
-              height: '100vh',
-              marginLeft: 'auto',
-            }}
-          >
-           <Box
-      sx={{
-        backgroundImage: 'url("this.jpeg")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        width: '100vw',
-        height: '100vh',
-        margin: 0,
-        padding: 0,
-        overflow: 'hidden',
-      }}
-      aria-label="Woman with coffee"
-    />
-        </Box>
-        </Box>
-      );
+  const [showFields, setShowFields] = useState(false);
+
+  const handleClick = () => {
+    setShowFields(true);  // Keeps your onClick event to show the fields
   };
-  
-  export default ContactUs;
-  
+
+  return (
+    <Box
+      sx={{
+        height: '100vh', // Full viewport height
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center', // Centers vertically and horizontally
+        padding: 4,
+        borderRadius: 2,
+        maxWidth: 400,
+        margin: 'auto',
+        bgcolor: '#f9f9f9',
+        boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+      }}
+    >
+      <Typography variant="h4" sx={{ mb: 2 }}>
+        Contact Us
+      </Typography>
+      <Typography variant="body1" sx={{ mb: 3 }}>
+        We will get back to you asap!
+      </Typography>
+
+      {/* Button to show input fields */}
+      {!showFields && (
+        <Button
+          onClick={handleClick}
+          variant="contained"
+          sx={{
+            backgroundColor: '#001f54',
+            color: '#fff',
+            padding: '10px 24px',
+            '&:hover': {
+              backgroundColor: '#001a4a',
+            },
+          }}
+        >
+          Show Contact Form
+        </Button>
+      )}
+
+      {/* Input fields appear when button is clicked */}
+      {showFields && (
+        <>
+          <Box sx={{ display: 'flex', gap: 2, mb: 2 }}>
+            <TextField
+              fullWidth
+              variant="outlined"
+              placeholder="First Name"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AccountCircle />
+                  </InputAdornment>
+                ),
+              }}
+            />
+            <TextField
+              fullWidth
+              variant="outlined"
+              placeholder="Last Name"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AccountCircle />
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Box>
+          <TextField
+            fullWidth
+            variant="outlined"
+            placeholder="Email"
+            sx={{ mb: 2 }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Email />
+                </InputAdornment>
+              ),
+            }}
+          />
+          <TextField
+            fullWidth
+            variant="outlined"
+            placeholder="Phone"
+            sx={{ mb: 3 }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Phone />
+                </InputAdornment>
+              ),
+            }}
+          />
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: '#001f54',
+              color: '#fff',
+              padding: '10px 24px',
+              '&:hover': {
+                backgroundColor: '#001a4a',
+              },
+            }}
+          >
+            Send
+          </Button>
+          <Typography variant="body2" sx={{ mt: 2, color: '#666' }}>
+            You may also call us at 333-33-33
+          </Typography>
+        </>
+      )}
+    </Box>
+  );
+};
+
+export default ContactUs;
