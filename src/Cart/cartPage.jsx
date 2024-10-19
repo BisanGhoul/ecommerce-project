@@ -1,6 +1,7 @@
 import './cartPage.css';  // Import the CSS file
 import Header from '../header/Header'; // Import the header
 import React, { useState } from 'react';
+import {Button} from '@mui/material';
 
 const Cart = () => {
     const [cartItems, setCartItems] = useState([
@@ -55,7 +56,7 @@ const Cart = () => {
                                 </td>
                                 <td>${(item.price * item.quantity).toFixed(2)}</td>
                                 <td>
-                                    <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
+                                    <Button onClick={() => handleRemoveItem(item.id)}>Remove</Button>
                                 </td>
                             </tr>
                         ))}
@@ -63,7 +64,7 @@ const Cart = () => {
                 </table>
             )}
             <h2>Total Amount: ${getTotalAmount().toFixed(2)}</h2>
-            <button onClick={() => alert('Proceeding to checkout...')}>Checkout</button>
+            <Button onClick={() => alert('Proceeding to checkout...')}>Checkout</Button>
         </div>
       </div>
     );
