@@ -7,7 +7,6 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Container } from '@mui/material';
 import { useNavigate, Link } from 'react-router-dom'; 
-import { Container, Link } from '@mui/material';
 
 const Header = () => {
   const navigate = useNavigate();
