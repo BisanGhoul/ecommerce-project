@@ -39,6 +39,9 @@ const Header = () => {
             <Link to="/products" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
               Products
             </Link>
+            <Link to="/add-product" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
+            Add product
+            </Link>
           </div>
 
           {/* Icons on the right */}
