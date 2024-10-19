@@ -12,11 +12,12 @@ const ContactUs = () => {
   return (
     <Box
       sx={{
-        height: '100vh', // Full viewport height
+        height: '100vh', 
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center', // Centers vertically and horizontally
+        justifyContent: 'center', 
+        backgroundImage: 'url("your-image-path.jpg")', 
         padding: 4,
         borderRadius: 2,
         maxWidth: 400,
@@ -38,7 +39,7 @@ const ContactUs = () => {
           onClick={handleClick}
           variant="contained"
           sx={{
-            backgroundColor: '#001f54',
+            backgroundColor: '#000',
             color: '#fff',
             padding: '10px 24px',
             '&:hover': {
@@ -108,7 +109,7 @@ const ContactUs = () => {
           <Button
             variant="contained"
             sx={{
-              backgroundColor: '#001f54',
+              backgroundColor: '#000',
               color: '#fff',
               padding: '10px 24px',
               '&:hover': {
@@ -127,4 +128,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default ContactUs; 

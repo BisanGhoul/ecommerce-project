@@ -18,7 +18,6 @@ const AboutUs = () => {
         alignItems: 'center',
         textAlign: 'center',
         padding: '40px 0',
-        backgroundImage: 'url("your-image-path.jpg")', // add your image path here if you want
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
@@ -57,7 +56,7 @@ const AboutUs = () => {
             <Typography variant="h6" sx={{ mb: 1 }}>
               LEADERSHIP
             </Typography>
-            <Typography variant="body2" sx={{ color: '#ccc' }}>
+            <Typography variant="body2" sx={{ color: '#ccc' }}>  
               Our multicultural leaders have deep start-up and enterprise experience, with rich mobile and data expertise.
             </Typography>
           </Box>
