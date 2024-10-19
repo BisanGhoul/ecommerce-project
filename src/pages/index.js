@@ -9,6 +9,7 @@ import ProductsPage from "./ProductsPageWithFiltering";
 import ProfilePage from "./ProfilePage";
 import SignUpBasicInfoPage from "./SignUpBasicInfoPage";
 import SignUpPaymentPage from "./SignUpPaymentInfoPage";
+import AddProductPage from "./AddProductPage";
 
 
 export {
@@ -22,5 +23,6 @@ export {
     ProductsPage,
     ProfilePage,
     SignUpBasicInfoPage,
-    SignUpPaymentPage
+    SignUpPaymentPage,
+    AddProductPage
 };
