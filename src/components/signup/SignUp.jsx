@@ -8,7 +8,7 @@ const SignUp = () => {
   const password = watch('password');
   const navigate = useNavigate();
 
-  const onSubmit =  async (data) => {
+  const onSubmit =   (data) => {
     try {
       navigate('/sign-up/payment', {state:data});
     } catch (error) {
