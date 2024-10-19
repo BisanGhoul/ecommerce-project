@@ -1,6 +1,6 @@
 import './cartPage.css';  // Import the CSS file
-import Header from '../header/Header'; // Import the header
 import React, { useState } from 'react';
+import {Button} from '@mui/material';
 
 const Cart = () => {
     const [cartItems, setCartItems] = useState([
