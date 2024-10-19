@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'; 
+import { Box,Typography, Button  } from '@mui/material'; 
 
 const HomePageComponent = () =>{
   return (
