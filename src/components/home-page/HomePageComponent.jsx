@@ -1,4 +1,5 @@
-import { Box } from '@mui/material'; 
+import { Box, Button, TextField, Grid, Typography } from '@mui/material';
+import backgroundImage from '../../assets/background-img.jpeg'; 
 
 const HomePageComponent = () =>{
   return (
@@ -142,7 +143,7 @@ const HomePageComponent = () =>{
       >
        <Box
   sx={{
-    backgroundImage: 'url("this.jpeg")',
+    backgroundImage: `url(${backgroundImage})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     width: '100vw',
