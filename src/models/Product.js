@@ -1,5 +1,5 @@
 export class Product {
-    constructor(id, name, price, quantity, category, itemType, colors = [], size, description, images = [], tags = []) {
+    constructor(id, name, price, quantity, category, itemType, colors = [], size = [], description, images = [], tags = []) {
       this.id = id;
       this.name = name;
       this.price = price;
@@ -96,5 +96,22 @@ export class Product {
       }
       return `Color "${color}" not found.`;
     }
+    addSize(size) {
+      if (!this.size.includes(size)) {
+        this.size.push(size);
+        return `Size "${size}" added to ${this.name}`;
+      }
+      return `Size "${size}" already exists for ${this.name}`;
+    }
+    
+    removeSize(size) {
+      const index = this.size.indexOf(size);
+      if (index > -1) {
+        this.size.splice(index, 1);
+        return `Size "${size}" removed from ${this.name}`;
+      }
+      return `Size "${size}" not found.`;
+    }
+    
   }
   
