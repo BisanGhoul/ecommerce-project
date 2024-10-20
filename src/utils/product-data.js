@@ -1,3 +1,5 @@
+import { Product} from '../models/Product';
+
 export const products = [
     new Product(
       1001, 
