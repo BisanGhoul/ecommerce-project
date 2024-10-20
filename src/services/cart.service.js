@@ -66,15 +66,16 @@ class CartService {
   // Updates the quantity of a product in the cart
   updateProductQuantity(id, newQuantity) {
     try {
-      const product = this.cart.find(item => item.id === id);
-      if (product) {
-        product.updateQuantity(newQuantity);  // Update quantity
-        this.saveCart();  // Save the updated cart
-      }
+        const product = this.cart.find(item => item.id === id);
+        if (product) {
+            product.quantity = newQuantity;  // Directly update quantity
+            this.saveCart();  // Save the updated cart
+        }
     } catch (error) {
-      console.error('Error updating product quantity in cart:', error);
+        console.error('Error updating product quantity in cart:', error);
     }
   }
+
 
   // Retrieves all the cart items
   getCartItems() {
