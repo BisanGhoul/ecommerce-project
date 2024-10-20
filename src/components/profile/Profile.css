@@ -8,3 +8,16 @@
     border-radius: 50%;
     margin-bottom: 15px;
 }
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* Adjust for header height */
+  }
+  
+  .loading-text {
+    font-size: 24px; /* Adjust size as needed */
+    font-weight: bold;
+  }
+  

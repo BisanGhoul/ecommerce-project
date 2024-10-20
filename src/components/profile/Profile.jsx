@@ -24,7 +24,11 @@ const Profile = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="loading-container">
+        <h2 className="loading-text">Loading...</h2>
+      </div>
+    );
   }
 
   return (
