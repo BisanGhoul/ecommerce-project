@@ -22,6 +22,7 @@ class LoginService {
       if (user) {
         console.log('Login successful:', user);
         localStorage.setItem('currentUser',JSON.stringify(userData) )
+        localStorage.setItem('currentUserCart',JSON.stringify(userData) )
 
         return { success: true, user };
       } else {

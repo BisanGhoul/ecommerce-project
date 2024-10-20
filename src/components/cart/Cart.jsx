@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
 import CartService from '../../services/cart.service';
 
+//****************
+//please use cart service and check the Product class so we can easily connect all components ogether later */
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
 
