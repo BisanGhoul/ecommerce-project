@@ -11,4 +11,4 @@ const wishlistPage = () => {
   );
 };
 
-export default Wishlist;
+export default wishlistPage;
