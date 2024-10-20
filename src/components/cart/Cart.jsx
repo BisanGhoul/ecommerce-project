@@ -19,13 +19,16 @@ const Cart = () => {
     }, []);
 
     const handleQuantityChange = (id, quantity) => {
+        if (quantity < 1) return; // Prevent setting quantity to less than 1
         CartService.updateProductQuantity(id, quantity);
-        setCartItems(CartService.loadCart());
+        setCartItems(CartService.loadCart()); // Refresh the cart items
+        window.dispatchEvent(new Event('cartUpdated')); // Notify the header
     };
-
+    
     const handleRemoveItem = async (id) => {
         await CartService.removeFromCart(id);
-        setCartItems(CartService.loadCart());
+        setCartItems(CartService.loadCart()); // Refresh the cart items
+        window.dispatchEvent(new Event('cartUpdated')); // Notify the header
     };
 
     const getTotalAmount = () => {
