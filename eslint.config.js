@@ -33,11 +33,11 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
-      // 'react/react-in-jsx-scope': 'off', // No longer needed with React 17+
-      // 'import/named': 'error',           // Error if named imports are not found
-      // 'import/default': 'error',         // Error if default imports are not found
-      // 'import/namespace': 'error',       // Error if namespace imports are not found
-      // 'import/export': 'error',          // Error for missing exports
+      'react/react-in-jsx-scope': 'off', // No longer needed with React 17+
+      'import/named': 'error',           // Error if named imports are not found
+      'import/default': 'error',         // Error if default imports are not found
+      'import/namespace': 'error',       // Error if namespace imports are not found
+      'import/export': 'error',          // Error for missing exports
     },
   },
 ]

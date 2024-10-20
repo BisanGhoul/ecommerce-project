@@ -22,7 +22,7 @@ export const products = [
     Colors.BLACK, 
     Sizes.MEDIUM, 
     'A stylish black shirt for men.', 
-    [`url(${MensBlackMediumShirt})`], 
+    [MensBlackMediumShirt], 
     [Tags.NEW, Tags.SALE]
   ),
   new Product(
@@ -35,7 +35,7 @@ export const products = [
     Colors.RED, 
     Sizes.SMALL, 
     'A beautiful red dress.', 
-    [`url(${WomensRedSmallShirt})`], 
+    [WomensRedSmallShirt], 
     [Tags.SALE]
   ),
   new Product(
@@ -48,7 +48,7 @@ export const products = [
     Colors.BLUE, 
     Sizes.LARGE, 
     'Comfortable blue pants for kids.', 
-    [`url(${BoysBluePantsLarge})`], 
+    [BoysBluePantsLarge], 
     [Tags.NEW]
   ),
   new Product(
@@ -61,7 +61,7 @@ export const products = [
     Colors.WHITE, 
     Sizes.MEDIUM, 
     'Casual white sneakers for women.', 
-    [`url(${WomensWhiteSneakersMedium})`], 
+    [WomensWhiteSneakersMedium], 
     [Tags.NEW, Tags.SALE]
   ),
   new Product(
@@ -74,7 +74,7 @@ export const products = [
     Colors.GREEN, 
     Sizes.LARGE, 
     'Comfortable green hoodie for men.', 
-    [`url(${MensGreenHoodieLarge})`], 
+    [MensGreenHoodieLarge], 
     [Tags.SALE]
   ),
   new Product(
@@ -87,7 +87,7 @@ export const products = [
     Colors.PINK, 
     Sizes.SMALL, 
     'Cute pink skirt for girls.', 
-    [`url(${GirlsPinkSkirtSmall})`], 
+    [GirlsPinkSkirtSmall], 
     [Tags.NEW]
   ),
   new Product(
@@ -100,7 +100,7 @@ export const products = [
     Colors.BLACK, 
     Sizes.MEDIUM, 
     'A stylish black shirt for men.', 
-    [`url(${MensBlackMediumShirt})`], 
+    [MensBlackMediumShirt], 
     [Tags.NEW, Tags.SALE]
   ),
   new Product(
@@ -113,7 +113,7 @@ export const products = [
     Colors.RED, 
     Sizes.SMALL, 
     'A beautiful red dress.', 
-    [`url(${WomensRedSmallShirt})`], 
+    [WomensRedSmallShirt], 
     [Tags.SALE]
   ),
   new Product(
@@ -126,7 +126,7 @@ export const products = [
     Colors.BLUE, 
     Sizes.LARGE, 
     'Comfortable blue pants for kids.', 
-    [`url(${BoysBluePantsLarge})`], 
+    [BoysBluePantsLarge], 
     [Tags.NEW]
   ),
   new Product(
@@ -139,7 +139,7 @@ export const products = [
     Colors.WHITE, 
     Sizes.MEDIUM, 
     'Casual white sneakers for women.', 
-    [`url(${WomensWhiteSneakersMedium})`], 
+    [WomensWhiteSneakersMedium], 
     [Tags.NEW, Tags.SALE]
   )
 ];
