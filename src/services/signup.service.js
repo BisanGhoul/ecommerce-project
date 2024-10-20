@@ -18,6 +18,7 @@ class SignupService {
     //  const response = await this.api.post('/users', userData);
     const response = {};
     this.users.push(userData);
+    localStorage.setItem('currentUser',JSON.stringify(userData) )
     localStorage.setItem('users', JSON.stringify(this.users));
     console.log('Current users:', this.users);
     //   return response.data;

@@ -21,6 +21,8 @@ class LoginService {
 
       if (user) {
         console.log('Login successful:', user);
+        localStorage.setItem('currentUser',JSON.stringify(userData) )
+
         return { success: true, user };
       } else {
         console.log('Invalid credentials');
