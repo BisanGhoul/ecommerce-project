@@ -6,7 +6,7 @@ const ContactUs = () => {
   const [showFields, setShowFields] = useState(false);
 
   const handleClick = () => {
-    setShowFields(true);  // Keeps your onClick event to show the fields
+    setShowFields(true);  
   };
 
   return (
@@ -33,7 +33,6 @@ const ContactUs = () => {
         We will get back to you asap!
       </Typography>
 
-      {/* Button to show input fields */}
       {!showFields && (
         <Button
           onClick={handleClick}
@@ -51,7 +50,6 @@ const ContactUs = () => {
         </Button>
       )}
 
-      {/* Input fields appear when button is clicked */}
       {showFields && (
         <>
           <Box sx={{ display: 'flex', gap: 2, mb: 2 }}>

@@ -25,7 +25,7 @@ const HomePageComponent = () => {
             Welcome to Our ChicVibe
           </Typography>
           <Typography variant="h6" sx={{ mb: 5 }}>
-            Discover the best way to manage your projects with speed and security.
+            Discover the best way to shop stylish and with a modern and youthful feel.!
           </Typography>
           <Button variant="contained" color="primary" sx={{ borderRadius: '20px', padding: '10px 20px' , }}>
             Log in
@@ -58,7 +58,6 @@ const HomePageComponent = () => {
         </Grid>
       </Container>
 
-      {/* Testimonials Section */}
       <Box sx={{ bgcolor: '#f4f6f8', py: 8 }}>
         <Container>
           <Typography variant="h4" sx={{ textAlign: 'center', mb: 5 }}>
@@ -70,7 +69,7 @@ const HomePageComponent = () => {
                 <CardContent>
                   <Avatar sx={{ margin: '0 auto', mb: 2 }}>A</Avatar>
                   <Typography variant="h6">John Doe</Typography>
-                  <Typography variant="body2">"This platform has transformed the way I manage my projects!"</Typography>
+                  <Typography variant="body2">"This let me wear the cidest, although I am a bussines man and dont have time."</Typography>
                 </CardContent>
               </Card>
             </Grid>
@@ -79,7 +78,7 @@ const HomePageComponent = () => {
                 <CardContent>
                   <Avatar sx={{ margin: '0 auto', mb: 2 }}>B</Avatar>
                   <Typography variant="h6">Jane Smith</Typography>
-                  <Typography variant="body2">"I can't imagine working without it. Amazing experience!"</Typography>
+                  <Typography variant="body2">"I can't imagine wearing without it. Amazing experience!"</Typography>
                 </CardContent>
               </Card>
             </Grid>
@@ -113,7 +112,7 @@ const HomePageComponent = () => {
       </Box>
 
       <Box sx={{ py: 4, textAlign: 'center', bgcolor: '#212121', color: '#fff' }}>
-        <Typography variant="body2">© 2024 Your Company Name. All rights reserved.</Typography>
+        <Typography variant="body2">© 2024 Your ChicVibe. All rights reserved.</Typography>
       </Box>
     </Box>
   );
