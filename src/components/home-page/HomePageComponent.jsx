@@ -1,162 +1,122 @@
-import { Box, Button, TextField, Grid, Typography } from '@mui/material';
+import React from 'react';
+import { Box, Typography, Button, Grid, Container, Avatar, Card, CardContent } from '@mui/material';
 import backgroundImage from '../../assets/background-img.jpeg'; 
 
-const HomePageComponent = () =>{
+const HomePageComponent = () => {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        height: '100vh',
-      }}
-    >
+    <Box>
       <Box
         sx={{
-          flex: 1,
+          minHeight: '90vh',
           display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          backgroundColor: '#F4DFD0',
-          padding: '20px 50px',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textAlign: 'center',
+          backgroundImage: `url(${backgroundImage})`, 
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          color: '#fff',
+          padding: '0 20px',
+          position: 'relative',
         }}
       >
-        <header
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-        >
-          <Typography
-            variant="h4"
-            sx={{
-              fontFamily: 'Brush Script MT, cursive',
-              color: '#b9774f',
-            }}
-          >
-            ChicVibe
+        <Box sx={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', padding: '40px', borderRadius: '20px' }}>
+          <Typography variant="h2" sx={{ fontWeight: 'bold', mb: 3 }}>
+            Welcome to Our ChicVibe
           </Typography>
-          <div>
-  {['About', 'Contact', 'Card', 'Favorite'].map((link) => (
-    <span
-      key={link}
-      onClick={() => console.log(`${link} clicked`)} 
-      style={{
-        cursor: 'pointer',
-        textDecoration: 'none',
-        color: '#333',
-        margin: '0 15px',
-        textTransform: 'uppercase',
-        fontSize: '14px',
-      }}
-    >
-      {link}
-    </span>
-  ))}
-
-  <Button
-    variant="contained"
-    onClick={() => console.log('Log in clicked')} 
-    sx={{
-      backgroundColor: '#b9774f',
-      color: '#fff',
-      textTransform: 'uppercase',
-      borderRadius: '5px',
-      padding: '10px 20px',
-      marginLeft: '20px',
-    }}
-  >
-    Log in
-  </Button>
-</div>
-        </header>
-        <Box
-          sx={{
-            flex: 1,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: '50px',
-          }}
-        >
-          <Box
-            sx={{
-              backgroundColor: '#f8ede4',
-              padding: '40px',
-              width: '100%',
-              boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-            }}
-          >
-            <Typography
-              variant="h1"
-              sx={{
-                fontFamily: 'Brush Script MT, cursive',
-                color: '#b9774f',
-                fontSize: '42px',
-              }}
-            >
-              Hey, ChicVibe!
-            </Typography>
-            <Typography
-              sx={{
-                color: '#333',
-                fontSize: '18px',
-                fontFamily: 'Georgia, Times, serif',
-                lineHeight: 1.6,
-                margin: '20px 0',
-              }}
-            >
-              Need more hours to have a shopping in your day?
-            </Typography>
-            <Typography
-              sx={{
-                color: '#333',
-                fontSize: '18px',
-                fontFamily: 'Georgia, Times, serif',
-                lineHeight: 1.6,
-                margin: '20px 0',
-              }}
-            >
-              Stylish and fashionable with a modern, trendy, and youthful feel.!
-            </Typography>
-            <Button
-              className="learn-more-button"
-              sx={{
-                backgroundColor: '#d68c6a',
-                color: '#fff',
-                padding: '10px 20px',
-                borderRadius: '5px',
-                cursor: 'pointer',
-                textTransform: 'uppercase',
-              }}
-            >
-              Sign up
-            </Button>
-          </Box>
+          <Typography variant="h6" sx={{ mb: 5 }}>
+            Discover the best way to manage your projects with speed and security.
+          </Typography>
+          <Button variant="contained" color="primary" sx={{ borderRadius: '20px', padding: '10px 20px' , }}>
+            Log in
+          </Button>
         </Box>
       </Box>
+      <Container sx={{ py: 8 }}>
+        <Typography variant="h4" sx={{ textAlign: 'center', mb: 5 }}>
+          Our Features
+        </Typography>
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={4}>
+            <Box textAlign="center">
+              <Typography variant="h6" sx={{ mb: 1 }}>Fast Performance</Typography>
+              <Typography variant="body1">Experience lightning-fast performance with our solution.</Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Box textAlign="center">
+              <Typography variant="h6" sx={{ mb: 1 }}>Top-notch Security</Typography>
+              <Typography variant="body1">We prioritize security to keep your data safe.</Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Box textAlign="center">
+              <Typography variant="h6" sx={{ mb: 1 }}>Loved by Users</Typography>
+              <Typography variant="body1">Our users love the simplicity and effectiveness.</Typography>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+
+      {/* Testimonials Section */}
+      <Box sx={{ bgcolor: '#f4f6f8', py: 8 }}>
+        <Container>
+          <Typography variant="h4" sx={{ textAlign: 'center', mb: 5 }}>
+            What Our Users Say
+          </Typography>
+          <Grid container spacing={4}>
+            <Grid item xs={12} md={4}>
+              <Card sx={{ textAlign: 'center' }}>
+                <CardContent>
+                  <Avatar sx={{ margin: '0 auto', mb: 2 }}>A</Avatar>
+                  <Typography variant="h6">John Doe</Typography>
+                  <Typography variant="body2">"This platform has transformed the way I manage my projects!"</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Card sx={{ textAlign: 'center' }}>
+                <CardContent>
+                  <Avatar sx={{ margin: '0 auto', mb: 2 }}>B</Avatar>
+                  <Typography variant="h6">Jane Smith</Typography>
+                  <Typography variant="body2">"I can't imagine working without it. Amazing experience!"</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Card sx={{ textAlign: 'center' }}>
+                <CardContent>
+                  <Avatar sx={{ margin: '0 auto', mb: 2 }}>C</Avatar>
+                  <Typography variant="h6">Alex Brown</Typography>
+                  <Typography variant="body2">"Great performance and support. Highly recommend!"</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
       <Box
         sx={{
-          width: '45vw',
-          height: '100vh',
-          marginLeft: 'auto',
+          py: 8,
+          textAlign: 'center',
+          background: '#F4DFD0',
+          color: '#b9774f',
         }}
       >
-       <Box
-  sx={{
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    width: '100vw',
-    height: '100vh',
-    margin: 0,
-    padding: 0,
-    overflow: 'hidden',
-  }}
-  aria-label="Woman with coffee"
-/>
-    </Box>
+        <Typography variant="h4" sx={{ mb: 3 }}>
+          Ready to Get Started?
+        </Typography>
+        <Button variant="contained" color="primary" sx={{ borderRadius: '20px', padding: '10px 20px' }}>
+          Sign Up Now
+        </Button>
+      </Box>
+
+      <Box sx={{ py: 4, textAlign: 'center', bgcolor: '#212121', color: '#fff' }}>
+        <Typography variant="body2">© 2024 Your Company Name. All rights reserved.</Typography>
+      </Box>
     </Box>
   );
-}
+};
 
 export default HomePageComponent;

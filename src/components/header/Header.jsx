@@ -21,10 +21,10 @@ const Header = () => {
     <AppBar position="fixed" sx={{ backgroundColor: 'black' }}>
       <Container maxWidth="xl">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px' }}>
-          {/* Logo */}
+          {/* logo */}
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <a href="/">
-              <img src="/path-to-logo.png" alt="Logo" color="inherit" style={{ height: '40px', marginLeft: '16px' }} />
+              <img src="/path-to-logo.png" alt="CHICVIBE" color="inherit" style={{ height: '40px', marginLeft: '16px' , color:'white'}} />
             </a>
           </div>
 
@@ -38,6 +38,9 @@ const Header = () => {
             </Link>
             <Link to="/products" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
               Products
+            </Link>
+            <Link to="/add-product" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
+            Add product
             </Link>
           </div>
 

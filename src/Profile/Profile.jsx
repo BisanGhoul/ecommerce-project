@@ -1,7 +1,6 @@
 // src/Profile.js
 import React, { useState, useEffect } from 'react';
 import './Profile.css';  // Import the CSS file
-import Header from '../header/Header'; // Import the header
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -27,12 +26,11 @@ const Profile = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className='loading'>Loading...</div>;
   }
 
   return (
     <div style={styles.container}>
-    <Header />
       <img src={user.avatar} alt="Avatar" style={styles.avatar} />
       <h2>{user.name}</h2>
       <p>{user.email}</p>
