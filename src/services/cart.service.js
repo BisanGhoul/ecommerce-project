@@ -1,96 +1,87 @@
-import axios from 'axios';
-import { Product } from '../models/Product'; 
+import { Product } from '../models/Product';  // Ensure this imports the Product class
 
 class CartService {
   constructor() {
-    this.loadCart();
-    this.api = axios.create({
-      baseURL: 'http://localhost:3000', // Change when we take backend, not really used now
-    });
+    this.cart = this.loadCart();  // Load cart on initialization
   }
 
-  // Load cart from localStorage
+  // Loads the cart from localStorage or returns an empty array if not found
   loadCart() {
     const cart = localStorage.getItem('cart');
-    this.cart = cart ? JSON.parse(cart).map(item => new Product(
-      item.id, item.name, item.price, item.quantity, item.category, item.itemType,
-      item.colors, item.size, item.description, item.images, item.tags
-    )) : [];
+    return cart ? JSON.parse(cart) : [];
   }
 
-  // Add product to the cart
-  async addToCart(productData) {
+  // Saves the cart to localStorage
+  saveCart() {
+    localStorage.setItem('cart', JSON.stringify(this.cart));
+  }
+
+  // Adds a product to the cart
+  addToCart(productData) {
     try {
       const product = new Product(
-        productData.id, productData.name, productData.price, 1, productData.category, productData.itemType,
-        productData.colors, productData.size, productData.description, productData.images, productData.tags
+        productData.id, 
+        productData.name, 
+        productData.price, 
+        1,  // Default quantity is 1
+        productData.category, 
+        productData.itemType,
+        productData.colors || [],  // Fallback to empty array if undefined
+        productData.size || [],    // Fallback to empty array if undefined
+        productData.description, 
+        productData.images || [],  // Fallback to empty array if undefined
+        productData.tags || []     // Fallback to empty array if undefined
       );
 
-      // Check if product is already in cart
+      // Check if product already exists in the cart
       const existingProduct = this.cart.find(item => item.id === product.id);
-
       if (existingProduct) {
-        existingProduct.quantity += 1; // add to cat
+        existingProduct.quantity += 1;  // If already exists, increase the quantity
       } else {
-        this.cart.push(product); 
+        this.cart.push(product);  // Otherwise, add the new product to the cart
       }
 
-      // Save cart to localStorage
-      localStorage.setItem('cart', JSON.stringify(this.cart));
-      console.log('Current cart:', this.cart);
-
-      return this.cart; // Return updated cart
+      this.saveCart();  // Save the updated cart
     } catch (error) {
       console.error('Error adding product to cart:', error);
-      throw error;
     }
   }
 
-  // Remove product from the cart
-  async removeFromCart(productId) {
+  // Removes a product from the cart by its ID
+  removeFromCart(id) {
     try {
-      this.cart = this.cart.filter(item => item.id !== productId); // Remove item by id
-      localStorage.setItem('cart', JSON.stringify(this.cart));
-      console.log('Updated cart after removal:', this.cart);
-
-      return this.cart;
+      const index = this.cart.findIndex(item => item.id === id);
+      if (index > -1) {
+        this.cart.splice(index, 1);  // Remove the item
+        this.saveCart();  // Save the updated cart
+      }
     } catch (error) {
       console.error('Error removing product from cart:', error);
-      throw error;
     }
   }
 
-  // Update product quantity in the cart
-  async updateProductQuantity(productId, quantity) {
+  // Updates the quantity of a product in the cart
+  updateProductQuantity(id, newQuantity) {
     try {
-      const product = this.cart.find(item => item.id === productId);
-
+      const product = this.cart.find(item => item.id === id);
       if (product) {
-        product.updateQuantity(quantity); // Use Product class method to update quantity
-        localStorage.setItem('cart', JSON.stringify(this.cart));
-        console.log('Updated cart with new quantity:', this.cart);
+        product.updateQuantity(newQuantity);  // Update quantity
+        this.saveCart();  // Save the updated cart
       }
-
-      return this.cart;
     } catch (error) {
-      console.error('Error updating product quantity:', error);
-      throw error;
+      console.error('Error updating product quantity in cart:', error);
     }
   }
 
-  // Clear all products from the cart
-  async clearCart() {
-    try {
-      this.cart = [];
-      localStorage.removeItem('cart');
-      console.log('Cart cleared');
+  // Retrieves all the cart items
+  getCartItems() {
+    return this.cart;
+  }
 
-      return this.cart;
-    } catch (error) {
-      console.error('Error clearing the cart:', error);
-      throw error;
-    }
+  // Calculates the total amount in the cart
+  getTotalAmount() {
+    return this.cart.reduce((total, item) => total + item.price * item.quantity, 0);
   }
 }
 
-export default new CartService();
+export default new CartService();  // Exporting a singleton instance

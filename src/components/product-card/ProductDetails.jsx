@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Grid, Box, Typography, Button, Select, MenuItem, FormControl, InputLabel, IconButton } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -18,9 +18,9 @@ const ProductDetails = () => {
     );
   }
 
-  const [size, setSize] = React.useState(product.size[0]);
-  const [quantity, setQuantity] = React.useState(1);
-  const [color, setColor] = React.useState(product.colors[0]);
+  const [size, setSize] = useState(product.size[0]);
+  const [quantity, setQuantity] = useState(1);
+  const [color, setColor] = useState(product.colors[0]);
 
   const handleSizeChange = (event) => {
     setSize(event.target.value);

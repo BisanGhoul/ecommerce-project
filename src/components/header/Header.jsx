@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
@@ -7,9 +7,20 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Container } from '@mui/material';
 import { useNavigate, Link } from 'react-router-dom'; 
+import CartService from '../../services/cart.service';
 
 const Header = () => {
   const navigate = useNavigate();
+  const [numOfCartItems, setNumOfCartItems] = useState(0);
+
+  useEffect(() => {
+    const updateCartItemCount = () => {
+      const cartItems = CartService.getCartItems();
+      setNumOfCartItems(cartItems.length);
+    };
+    updateCartItemCount();
+  }, [CartService.getCartItems()]);
+
   function cartClick () {
     navigate('/cart');
   }
@@ -58,7 +69,7 @@ const Header = () => {
               </Badge>
             </IconButton>
             <IconButton color="inherit" onClick = {cartClick} >
-              <Badge badgeContent={1} color="error">
+              <Badge badgeContent={numOfCartItems} color="error">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
