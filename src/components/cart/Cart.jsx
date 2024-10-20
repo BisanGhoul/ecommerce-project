@@ -1,18 +1,19 @@
-import './cartPage.css'; // Import the CSS file
 import React, { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
 import CartService from '../../services/cart.service';
+import './cartPage.css';
 
-//****************
-//please use cart service and check the Product class so we can easily connect all components ogether later */
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const loadCart = () => {
-            const items = CartService.loadCart() || [];  // Get the cart items, fallback to an empty array
+        const loadCart = async () => {
+            setLoading(true);
+            const items = await CartService.loadCart() || [];
             console.log('Loaded cart items:', items);
-            setCartItems(items); // Set the cart items state
+            setCartItems(items);
+            setLoading(false);
         };
         loadCart();
     }, []);
@@ -30,6 +31,14 @@ const Cart = () => {
     const getTotalAmount = () => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
     };
+
+    if (loading) {
+        return (
+            <div className="loading-container">
+                <h2 className="loading-text">Loading...</h2>
+            </div>
+        );
+    }
 
     return (
         <div className="cart">

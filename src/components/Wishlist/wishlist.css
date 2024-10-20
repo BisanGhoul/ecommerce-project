@@ -1,0 +1,17 @@
+.wishlist {
+    padding: 40px;
+}
+
+.wishlist table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.wishlist th, .wishlist td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.wishlist h1 {
+    margin-bottom: 20px;
+}
