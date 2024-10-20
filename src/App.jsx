@@ -15,7 +15,8 @@ import {
     ProfilePage, 
     SignUpBasicInfoPage, 
     SignUpPaymentPage,
-    WishlistPage
+    WishlistPage,
+    CheckOutPage
 } from './pages/index'; 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
       <Route path="/sign-up/basic-info" element={<SignUpBasicInfoPage />} />
       <Route path="/sign-up/payment" element={<SignUpPaymentPage />} />
       <Route path="/Wishlist" element={<WishlistPage />} />
+      <Route path="/checkout" element={<CheckOutPage />} />
       <Route path="*" element={<HomePage />} />
 
     </Routes>

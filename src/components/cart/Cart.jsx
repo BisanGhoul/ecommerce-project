@@ -2,10 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
 import CartService from '../../services/cart.service';
 import './cartPage.css';
+import { useNavigate } from 'react-router-dom'; 
 
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
+
+    function checkoutClick() {
+        navigate('/checkout');
+      }
 
     useEffect(() => {
         const loadCart = async () => {
@@ -83,7 +89,7 @@ const Cart = () => {
                     </table>
                 )}
                 <h2>Total Amount: ${getTotalAmount().toFixed(2)}</h2>
-                <Button onClick={() => alert('Proceeding to checkout...')}>Checkout</Button>
+                <Button onClick={checkoutClick}>Checkout</Button>
             </div>
         </div>
     );
