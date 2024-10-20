@@ -17,6 +17,10 @@ const Header = () => {
     navigate('/profile');
   }
 
+  function wishlistClick () {
+    navigate('/wishlist');
+  }
+
   return (
     <AppBar position="fixed" sx={{ backgroundColor: 'black' }}>
       <Container maxWidth="xl">
@@ -52,7 +56,7 @@ const Header = () => {
 
           {/* Icons on the right */}
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <IconButton color="inherit">
+            <IconButton color="inherit" onClick = {wishlistClick}>
               <Badge badgeContent={0} color="error">
                 <FavoriteIcon />
               </Badge>
