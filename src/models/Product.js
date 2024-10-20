@@ -1,12 +1,12 @@
 export class Product {
-    constructor(id, name, price, quantity, category, itemType, color, size, description, images = [], tags = []) {
+    constructor(id, name, price, quantity, category, itemType, colors = [], size, description, images = [], tags = []) {
       this.id = id;
       this.name = name;
       this.price = price;
       this.quantity = quantity;
       this.category = category;
       this.itemType = itemType;
-      this.color = color;
+      this.colors = colors;
       this.size = size;
       this.description = description;
       this.images = images;
@@ -15,7 +15,7 @@ export class Product {
     }
   
     displayProductInfo() {
-      return `Product ID: ${this.id}, Name: ${this.name}, Price: $${this.price}, Category: ${this.category}, Item: ${this.itemType}, Color: ${this.color}, Size: ${this.size}, Quantity: ${this.quantity}`;
+      return `Product ID: ${this.id}, Name: ${this.name}, Price: $${this.price}, Category: ${this.category}, Item: ${this.itemType}, Size: ${this.size}, Quantity: ${this.quantity}`;
     }
   
     updateQuantity(newQuantity) {
@@ -78,6 +78,23 @@ export class Product {
         return `Tag "${tag}" removed from ${this.name}`;
       }
       return `Tag "${tag}" not found.`;
+    }
+
+    addColor(color) {
+      if (!this.colors.includes(color)) {
+        this.colors.push(color);
+        return `Color "${color}" added to ${this.name}`;
+      }
+      return `Color "${color}" already exists for ${this.name}`;
+    }
+  
+    removeColor(color) {
+      const index = this.colors.indexOf(color);
+      if (index > -1) {
+        this.colors.splice(index, 1);
+        return `Color "${color}" removed from ${this.name}`;
+      }
+      return `Color "${color}" not found.`;
     }
   }
   
