@@ -1,0 +1,53 @@
+.checkout {
+    padding: 20px;
+}
+
+.checkoutView {
+    margin: auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc; /* Similar border to cart */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background */
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height for loading */
+}
+
+.loading-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between form fields */
+    margin-bottom: 20px; /* Space between form and cart items */
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc; /* Input border */
+    border-radius: 5px; /* Rounded corners */
+    width: 100%; /* Full width */
+}
+
+table {
+    width: 100%; /* Full width for table */
+    border-collapse: collapse; /* Merge table borders */
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc; /* Table border */
+}
+
+h2 {
+    margin-top: 20px; /* Space above cart heading */
+}

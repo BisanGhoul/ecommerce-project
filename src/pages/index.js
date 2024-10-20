@@ -11,6 +11,7 @@ import SignUpBasicInfoPage from "./SignUpBasicInfoPage";
 import SignUpPaymentPage from "./SignUpPaymentInfoPage";
 import AddProductPage from "./AddProductPage";
 import WishlistPage from "./wishlistPage";
+import CheckOutPage from "./CheckoutPage";
 
 
 export {
@@ -26,5 +27,6 @@ export {
     SignUpBasicInfoPage,
     SignUpPaymentPage,
     AddProductPage,
-    WishlistPage
+    WishlistPage,
+    CheckOutPage
 };

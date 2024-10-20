@@ -27,10 +27,36 @@ const Header = () => {
   useEffect(() => {
     const updateCartItemCount = () => {
       const cartItems = CartService.getCartItems();
-      setNumOfCartItems(cartItems.length);
+      setNumOfCartItems(cartItems.reduce((total, item) => total + item.quantity, 0));
     };
+  
+    // Initial load
     updateCartItemCount();
-  }, [CartService.getCartItems()]);
+  
+    // Listen for cart updates
+    const handleCartUpdate = () => {
+      updateCartItemCount();
+    };
+    
+    window.addEventListener('cartUpdated', handleCartUpdate);
+  
+    // Cleanup listener on unmount
+    return () => {
+      window.removeEventListener('cartUpdated', handleCartUpdate);
+    };
+  }, []);
+
+  function cartClick() {
+    navigate('/cart');
+  }
+
+  function profileClick() {
+    navigate('/profile');
+  }
+
+  function wishlistClick() {
+    navigate('/wishlist');
+  }
 
   return (
     <AppBar position="fixed" sx={{ backgroundColor: 'black' }}>
@@ -38,34 +64,38 @@ const Header = () => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px' }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <a href="/">
-              <img src="/path-to-logo.png" alt="CHICVIBE" style={{ height: '40px', marginLeft: '16px' }} />
+              <img src="/path-to-logo.png" alt="CHICVIBE" style={{ height: '40px', marginLeft: '16px' , color:'white'}} />
             </a>
           </div>
 
           <div style={{ display: 'flex', flexGrow: 1, justifyContent: 'center' }}>
-            <Link to="/about-us" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>About Us</Link>
-            <Link to="/contact-us" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>Contact Us</Link>
-            <Link to="/products" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>Products</Link>
-            <Link to="/add-product" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>Add Product</Link>
+            <Link to="/about-us" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
+              About Us
+            </Link>
+            <Link to="/contact-us" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
+              Contact Us
+            </Link>
+            <Link to="/products" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
+              Products
+            </Link>
+            <Link to="/add-product" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
+            Add product
+            </Link>
+
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <IconButton color="inherit">
+            <IconButton color="inherit" onClick={wishlistClick}>
               <Badge badgeContent={0} color="error">
                 <FavoriteIcon />
               </Badge>
             </IconButton>
-
-            <IconButton color="inherit" onClick={() => navigate('/cart')}>
+            <IconButton color="inherit" onClick={cartClick}>
               <Badge badgeContent={numOfCartItems} color="error">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
-
-            <IconButton 
-              color="inherit" 
-              onClick={handleProfileClick}
-            >
+            <IconButton color="inherit" onClick = {profileClick}>
               <AccountCircleIcon />
             </IconButton>
 
