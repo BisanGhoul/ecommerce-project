@@ -4,7 +4,7 @@ import { Colors } from './enums/Color';
 import { ItemTypes } from './enums/ItemTypes';
 import { Sizes } from './enums/Size';
 import { Tags } from './enums/Tags';
-
+//import { Categories, Colors, ItemTypes, Sizes, Tags } from './enums/index';
 export const products = [
   new Product(
     1001, 
@@ -85,7 +85,7 @@ export const products = [
     [Tags.NEW]
   ),
   new Product(
-    1001, 
+    1007, 
     'Men’s Black Shirt', 
     29.99, 
     100, 
@@ -98,7 +98,7 @@ export const products = [
     [Tags.NEW, Tags.SALE]
   ),
   new Product(
-    1002, 
+    1008, 
     'Women’s Red Dress', 
     49.99, 
     50, 
@@ -111,7 +111,7 @@ export const products = [
     [Tags.SALE]
   ),
   new Product(
-    1003, 
+    1009, 
     'Children’s Blue Pants', 
     19.99, 
     200, 
@@ -124,7 +124,7 @@ export const products = [
     [Tags.NEW]
   ),
   new Product(
-    1004, 
+    1010, 
     'Women’s White Sneakers', 
     59.99, 
     80, 
