@@ -10,9 +10,8 @@ const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleProfileClick = (event) => {
-    // If the menu is already open (i.e., anchorEl is set), close it by setting anchorEl to null.
-    // Otherwise, open it by setting anchorEl to the current target (the profile icon).
-    setAnchorEl(prev => prev ? null : event.currentTarget);
+    // Toggle menu visibility based on whether it's already open (anchorEl is null or not)
+    setAnchorEl(prev => (prev ? null : event.currentTarget));
   };
 
   const handleCloseMenu = () => {
@@ -20,8 +19,8 @@ const Header = () => {
   };
 
   const profileClick = () => {
-    navigate('/profile');
     handleCloseMenu();
+    navigate('/profile');
   };
 
   useEffect(() => {
@@ -29,34 +28,30 @@ const Header = () => {
       const cartItems = CartService.getCartItems();
       setNumOfCartItems(cartItems.reduce((total, item) => total + item.quantity, 0));
     };
-  
+
     // Initial load
     updateCartItemCount();
-  
+
     // Listen for cart updates
     const handleCartUpdate = () => {
       updateCartItemCount();
     };
-    
+
     window.addEventListener('cartUpdated', handleCartUpdate);
-  
+
     // Cleanup listener on unmount
     return () => {
       window.removeEventListener('cartUpdated', handleCartUpdate);
     };
   }, []);
 
-  function cartClick() {
+  const cartClick = () => {
     navigate('/cart');
-  }
+  };
 
-  function profileClick() {
-    navigate('/profile');
-  }
-
-  function wishlistClick() {
+  const wishlistClick = () => {
     navigate('/wishlist');
-  }
+  };
 
   return (
     <AppBar position="fixed" sx={{ backgroundColor: 'black' }}>
@@ -64,7 +59,7 @@ const Header = () => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px' }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <a href="/">
-              <img src="/path-to-logo.png" alt="CHICVIBE" style={{ height: '40px', marginLeft: '16px' , color:'white'}} />
+              <img src="/path-to-logo.png" alt="CHICVIBE" style={{ height: '40px', marginLeft: '16px', color: 'white' }} />
             </a>
           </div>
 
@@ -79,9 +74,8 @@ const Header = () => {
               Products
             </Link>
             <Link to="/add-product" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
-            Add product
+              Add product
             </Link>
-
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -95,17 +89,17 @@ const Header = () => {
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
-            <IconButton color="inherit" onClick = {profileClick}>
+            <IconButton color="inherit" onClick={handleProfileClick}>
               <AccountCircleIcon />
             </IconButton>
 
             <Menu
               anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
+              open={Boolean(anchorEl)}  // Use anchorEl to determine if the menu is open
               onClose={handleCloseMenu}
-              MenuListProps={{ 'aria-labelledby': 'basic-button' }}
-              anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-              transformOrigin={{ vertical: 'top', horizontal: 'center' }}
+              MenuListProps={{ 'aria-labelledby': 'profile-button' }}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }} // Positioning the menu
+              transformOrigin={{ vertical: 'top', horizontal: 'center' }} // Positioning the menu
               PaperProps={{
                 elevation: 3,
                 sx: {
