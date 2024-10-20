@@ -44,7 +44,7 @@ const AddProduct = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center', // وضع المحتوى في المنتصف عمودياً
+        justifyContent: 'center', 
         padding: 4,
       }}
     >

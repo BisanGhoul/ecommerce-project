@@ -10,7 +10,7 @@ const AboutUs = () => {
     <Box
       sx={{
         minHeight: '100vh',
-        bgcolor: '#121212',
+        bgcolor: 'white', 
         color: '#fff',
         display: 'flex',
         flexDirection: 'column',
@@ -22,7 +22,7 @@ const AboutUs = () => {
         backgroundPosition: 'center',
       }}
     >
-      <Typography variant="h4" sx={{ mb: 5 }}>
+      <Typography variant="h4" sx={{ mb: 5, color: '#000' }}> 
         Get to know us
       </Typography>
       <Box
@@ -37,7 +37,7 @@ const AboutUs = () => {
           sx={{
             height: '3px',
             width: '100px',
-            bgcolor: '#fff',
+            bgcolor: '#000', 
           }}
         />
       </Box>
@@ -52,11 +52,11 @@ const AboutUs = () => {
               padding: 2,
             }}
           >
-            <LeadershipIcon sx={{ fontSize: 60, mb: 2, color: '#fff' }} />
-            <Typography variant="h6" sx={{ mb: 1 }}>
+            <LeadershipIcon sx={{ fontSize: 60, mb: 2, color: '#ff7043' }} /> 
+            <Typography variant="h6" sx={{ mb: 1, color: '#ff7043' }}>
               LEADERSHIP
             </Typography>
-            <Typography variant="body2" sx={{ color: '#ccc' }}>  
+            <Typography variant="body2" sx={{ color: '#000' }}> 
               Our multicultural leaders have deep start-up and enterprise experience, with rich mobile and data expertise.
             </Typography>
           </Box>
@@ -71,11 +71,11 @@ const AboutUs = () => {
               padding: 2,
             }}
           >
-            <CareersIcon sx={{ fontSize: 60, mb: 2, color: '#fff' }} />
-            <Typography variant="h6" sx={{ mb: 1 }}>
+            <CareersIcon sx={{ fontSize: 60, mb: 2, color: '#4caf50' }} /> 
+            <Typography variant="h6" sx={{ mb: 1, color: '#4caf50' }}>
               CAREERS
             </Typography>
-            <Typography variant="body2" sx={{ color: '#ccc' }}>
+            <Typography variant="body2" sx={{ color: '#000' }}>
               We take great pride in our market leadership position, thanks to the hard work of our incredibly talented.
             </Typography>
           </Box>
@@ -90,11 +90,11 @@ const AboutUs = () => {
               padding: 2,
             }}
           >
-            <PartnershipsIcon sx={{ fontSize: 60, mb: 2, color: '#fff' }} />
-            <Typography variant="h6" sx={{ mb: 1 }}>
+            <PartnershipsIcon sx={{ fontSize: 60, mb: 2, color: '#29b6f6' }} /> 
+            <Typography variant="h6" sx={{ mb: 1, color: '#29b6f6' }}>
               PARTNERSHIPS
             </Typography>
-            <Typography variant="body2" sx={{ color: '#ccc' }}>
+            <Typography variant="body2" sx={{ color: '#000' }}>
               From research, to events, to platform partnerships, we work with thought leaders to provide more actionable data.
             </Typography>
           </Box>
@@ -109,11 +109,11 @@ const AboutUs = () => {
               padding: 2,
             }}
           >
-            <PressIcon sx={{ fontSize: 60, mb: 2, color: '#fff' }} />
-            <Typography variant="h6" sx={{ mb: 1 }}>
+            <PressIcon sx={{ fontSize: 60, mb: 2, color: '#fbc02d' }} /> 
+            <Typography variant="h6" sx={{ mb: 1, color: '#fbc02d' }}>
               PRESS
             </Typography>
-            <Typography variant="body2" sx={{ color: '#ccc' }}>
+            <Typography variant="body2" sx={{ color: '#000' }}>
               We are at the forefront of the market's conversations and serve as the most trusted, global source.
             </Typography>
           </Box>
