@@ -7,22 +7,22 @@ const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
-        // Load initial cart from service
-        const loadCart = async () => {
-            const items = await CartService.loadCart();
-            setCartItems(items);
+        const loadCart = () => {
+            const items = CartService.loadCart() || [];  // Get the cart items, fallback to an empty array
+            console.log('Loaded cart items:', items);
+            setCartItems(items); // Set the cart items state
         };
         loadCart();
     }, []);
 
-    const handleQuantityChange = async (id, quantity) => {
-        await CartService.updateProductQuantity(id, quantity);
-        setCartItems(await CartService.loadCart());
+    const handleQuantityChange = (id, quantity) => {
+        CartService.updateProductQuantity(id, quantity);
+        setCartItems(CartService.loadCart());
     };
 
     const handleRemoveItem = async (id) => {
         await CartService.removeFromCart(id);
-        setCartItems(await CartService.loadCart());
+        setCartItems(CartService.loadCart());
     };
 
     const getTotalAmount = () => {
