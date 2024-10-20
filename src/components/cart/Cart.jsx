@@ -9,10 +9,6 @@ const Cart = () => {
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
-    function checkoutClick() {
-        navigate('/checkout');
-      }
-
     useEffect(() => {
         const loadCart = async () => {
             setLoading(true);
@@ -39,6 +35,17 @@ const Cart = () => {
 
     const getTotalAmount = () => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    };
+
+    const handleCheckout = () => {
+        if (cartItems.length === 0) {
+            const confirmRedirect = window.confirm("Your cart is empty. Would you like to go to the products page?");
+            if (confirmRedirect) {
+                navigate('/products');
+            }
+        } else {
+            navigate('/checkout');
+        }
     };
 
     if (loading) {
@@ -89,7 +96,7 @@ const Cart = () => {
                     </table>
                 )}
                 <h2>Total Amount: ${getTotalAmount().toFixed(2)}</h2>
-                <Button onClick={checkoutClick}>Checkout</Button>
+                <Button onClick={handleCheckout}>Checkout</Button>
             </div>
         </div>
     );
