@@ -6,7 +6,7 @@ const wishlistPage = () => {
   return (
     <div>
       <Header />
-      <Wishlist />
+      <Wishlist div style={{ paddingTop: '640px' }}/>
     </div>
   );
 };
