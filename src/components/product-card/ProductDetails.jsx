@@ -4,7 +4,7 @@ import { Grid, Box, Typography, Button, Select, MenuItem, FormControl, InputLabe
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { products } from '../../utils/product-data'; 
-
+import CartService  from '../../services/cart.service';
 const ProductDetails = () => {
   const { id } = useParams(); 
   const product = products.find((p) => p.id === parseInt(id)); 
@@ -30,8 +30,25 @@ const ProductDetails = () => {
     setQuantity(event.target.value);
   };
 
+  // Add to Cart button handler
+  const handleAddToCart = async () => {
+    const productToAdd = {
+      ...product,
+      size: size,
+      quantity: quantity,
+      colors: [color]  // Add the selected color
+    };
+
+    try {
+      const updatedCart = await CartService.addToCart(productToAdd);
+      console.log('Cart after adding product:', updatedCart);
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+    }
+  };
+
   return (
-    <Box sx={{ padding: '40px', display: 'flex', justifyContent: 'center', marginTop:'80px' }}>
+    <Box sx={{ padding: '40px', display: 'flex', justifyContent: 'center', marginTop: '80px' }}>
       <Box
         sx={{
           maxWidth: '800px',
@@ -96,7 +113,13 @@ const ProductDetails = () => {
                 </Select>
               </FormControl>
 
-              <Button variant="contained" color="primary" fullWidth startIcon={<ShoppingCartIcon />}>
+              <Button 
+                variant="contained" 
+                color="primary" 
+                fullWidth 
+                startIcon={<ShoppingCartIcon />} 
+                onClick={handleAddToCart}  // Trigger the add to cart action
+              >
                 Add To Cart
               </Button>
             </Box>
