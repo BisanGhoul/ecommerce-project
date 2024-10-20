@@ -2,6 +2,8 @@ import './cartPage.css';  // Import the CSS file
 import React, { useState } from 'react';
 import { Button } from '@mui/material';
 
+//****************
+//please use cart service and check the Product class so we can easily connect all components ogether later */
 const Cart = () => {
     const [cartItems, setCartItems] = useState([
       { id: 1, name: 'Product 1', price: 20, quantity: 1 },
