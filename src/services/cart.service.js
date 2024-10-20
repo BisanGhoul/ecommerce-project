@@ -20,28 +20,31 @@ class CartService {
   addToCart(productData) {
     try {
       const product = new Product(
-        productData.id, 
-        productData.name, 
-        productData.price, 
-        1,  // Default quantity is 1
-        productData.category, 
+        productData.id,
+        productData.name,
+        productData.price,
+        1,  // Default quantity
+        productData.category,
         productData.itemType,
-        productData.colors || [],  // Fallback to empty array if undefined
-        productData.size || [],    // Fallback to empty array if undefined
-        productData.description, 
-        productData.images || [],  // Fallback to empty array if undefined
-        productData.tags || []     // Fallback to empty array if undefined
+        productData.colors || [],
+        productData.size || [],
+        productData.description,
+        productData.images || [],
+        productData.tags || []
       );
-
-      // Check if product already exists in the cart
+  
+      // Check if the product already exists in the cart
       const existingProduct = this.cart.find(item => item.id === product.id);
       if (existingProduct) {
-        existingProduct.quantity += 1;  // If already exists, increase the quantity
+        existingProduct.quantity += 1;  // Increase the quantity
       } else {
-        this.cart.push(product);  // Otherwise, add the new product to the cart
+        this.cart.push(product);  // Add new product
       }
-
-      this.saveCart();  // Save the updated cart
+  
+      this.saveCart();  // Save changes to localStorage
+  
+      // Dispatch the event after modifying the cart
+      window.dispatchEvent(new Event('cartUpdated'));
     } catch (error) {
       console.error('Error adding product to cart:', error);
     }

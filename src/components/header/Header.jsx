@@ -16,19 +16,34 @@ const Header = () => {
   useEffect(() => {
     const updateCartItemCount = () => {
       const cartItems = CartService.getCartItems();
-      setNumOfCartItems(cartItems.length);
+      setNumOfCartItems(cartItems.reduce((total, item) => total + item.quantity, 0));
     };
+  
+    // Initial load
     updateCartItemCount();
-  }, [CartService.getCartItems()]);
+  
+    // Listen for cart updates
+    const handleCartUpdate = () => {
+      updateCartItemCount();
+    };
+    
+    window.addEventListener('cartUpdated', handleCartUpdate);
+  
+    // Cleanup listener on unmount
+    return () => {
+      window.removeEventListener('cartUpdated', handleCartUpdate);
+    };
+  }, []);
 
-  function cartClick () {
+  function cartClick() {
     navigate('/cart');
   }
-  function profileClick () {
+
+  function profileClick() {
     navigate('/profile');
   }
 
-  function wishlistClick () {
+  function wishlistClick() {
     navigate('/wishlist');
   }
 
@@ -39,45 +54,33 @@ const Header = () => {
           {/* logo */}
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <a href="/">
-              <img src="/path-to-logo.png" alt="CHICVIBE" color="inherit" style={{ height: '40px', marginLeft: '16px' , color:'white'}} />
+              <img src="/path-to-logo.png" alt="CHICVIBE" style={{ height: '40px', marginLeft: '16px' , color:'white'}} />
             </a>
           </div>
 
           {/* Links in the middle */}
           <div style={{ display: 'flex', flexGrow: 1, justifyContent: 'center' }}>
-            <Link to="/about-us" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
-              About Us
-            </Link>
-            <Link to="/contact-us" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
-              Contact Us
-            </Link>
-            <Link to="/products" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
-              Products
-            </Link>
-            <Link to="/add-product" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
-            Add product
-            </Link>
-            <Link to="/sign-in" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
-            Login
-            </Link>
-            <Link to="/sign-up/basic-info" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>
-            Signup
-            </Link>
+            <Link to="/about-us" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>About Us</Link>
+            <Link to="/contact-us" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>Contact Us</Link>
+            <Link to="/products" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>Products</Link>
+            <Link to="/add-product" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>Add Product</Link>
+            <Link to="/sign-in" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>Login</Link>
+            <Link to="/sign-up/basic-info" style={{ margin: '0 16px', color: 'inherit', textDecoration: 'none' }}>Signup</Link>
           </div>
 
           {/* Icons on the right */}
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <IconButton color="inherit" onClick = {wishlistClick}>
+            <IconButton color="inherit" onClick={wishlistClick}>
               <Badge badgeContent={0} color="error">
                 <FavoriteIcon />
               </Badge>
             </IconButton>
-            <IconButton color="inherit" onClick = {cartClick} >
+            <IconButton color="inherit" onClick={cartClick}>
               <Badge badgeContent={numOfCartItems} color="error">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
-            <IconButton color="inherit" onClick = {profileClick}>
+            <IconButton color="inherit" onClick={profileClick}>
               <AccountCircleIcon />
             </IconButton>
           </div>
