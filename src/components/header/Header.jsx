@@ -51,13 +51,13 @@ const Header = () => {
                 <FavoriteIcon />
               </Badge>
             </IconButton>
-            <IconButton color="inherit">
+            <IconButton color="inherit" onClick = {cartClick} >
               <Badge badgeContent={1} color="error">
-                <ShoppingCartIcon onClick = {cartClick} />
+                <ShoppingCartIcon />
               </Badge>
             </IconButton>
-            <IconButton color="inherit">
-              <AccountCircleIcon onClick = {profileClick}/>
+            <IconButton color="inherit" onClick = {profileClick}>
+              <AccountCircleIcon />
             </IconButton>
           </div>
         </div>
