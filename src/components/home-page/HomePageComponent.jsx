@@ -1,8 +1,20 @@
 import React from 'react';
 import { Box, Typography, Button, Grid, Container, Avatar, Card, CardContent } from '@mui/material';
 import backgroundImage from '../../assets/background-img.jpeg'; 
+import { useNavigate } from 'react-router-dom';
 
 const HomePageComponent = () => {
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate('/sign-in');
+  };
+
+  const handleSignUpClick = () => {
+    navigate('/sign-up/basic-info');
+  };
+
+
   return (
     <Box>
       <Box
@@ -27,7 +39,7 @@ const HomePageComponent = () => {
           <Typography variant="h6" sx={{ mb: 5 }}>
             Discover the best way to shop stylish and with a modern and youthful feel.!
           </Typography>
-          <Button variant="contained" color="primary" sx={{ borderRadius: '20px', padding: '10px 20px' , }}>
+          <Button variant="contained" color="primary" sx={{ borderRadius: '20px', padding: '10px 20px' }} onClick={handleLoginClick}>
             Log in
           </Button>
         </Box>
@@ -106,7 +118,7 @@ const HomePageComponent = () => {
         <Typography variant="h4" sx={{ mb: 3 }}>
           Ready to Get Started?
         </Typography>
-        <Button variant="contained" color="primary" sx={{ borderRadius: '20px', padding: '10px 20px' }}>
+        <Button variant="contained" color="primary" sx={{ borderRadius: '20px', padding: '10px 20px' }} onClick={handleSignUpClick}>
           Sign Up Now
         </Button>
       </Box>
