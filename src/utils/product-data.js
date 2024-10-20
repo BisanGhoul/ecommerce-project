@@ -4,7 +4,13 @@ import { Colors } from './enums/Color';
 import { ItemTypes } from './enums/ItemTypes';
 import { Sizes } from './enums/Size';
 import { Tags } from './enums/Tags';
-//import { Categories, Colors, ItemTypes, Sizes, Tags } from './enums/index';
+import BoysBluePantsLarge from '../assets/images/BoysBluePantsLarge.jpg';
+import GirlsPinkSkirtSmall from '../assets/images/GirlsPinkSkirtSmall.jpg';
+import MensBlackMediumShirt from '../assets/images/MensBlackMediumShirt.jpg';
+import MensGreenHoodieLarge from '../assets/images/MensGreenHoodieLarge.webp';
+import WomensRedSmallShirt from '../assets/images/WomensRedSmallShirt.jpg';
+import WomensWhiteSneakersMedium from '../assets/images/WomensWhiteSneakersMedium.webp';
+
 export const products = [
   new Product(
     1001, 
@@ -16,12 +22,12 @@ export const products = [
     Colors.BLACK, 
     Sizes.MEDIUM, 
     'A stylish black shirt for men.', 
-    ['https://image1.jpg', 'https://image2.jpg'], 
+    [`url(${MensBlackMediumShirt})`], 
     [Tags.NEW, Tags.SALE]
   ),
   new Product(
     1002, 
-    'Women’s Red Dress', 
+    'Women’s Red Shirt', 
     49.99, 
     50, 
     Categories.WOMEN, 
@@ -29,12 +35,12 @@ export const products = [
     Colors.RED, 
     Sizes.SMALL, 
     'A beautiful red dress.', 
-    ['https://image3.jpg', 'https://image4.jpg'], 
+    [`url(${WomensRedSmallShirt})`], 
     [Tags.SALE]
   ),
   new Product(
     1003, 
-    'Children’s Blue Pants', 
+    'Boys’s Blue Pants', 
     19.99, 
     200, 
     Categories.BOYS, 
@@ -42,7 +48,7 @@ export const products = [
     Colors.BLUE, 
     Sizes.LARGE, 
     'Comfortable blue pants for kids.', 
-    ['https://image5.jpg'], 
+    [`url(${BoysBluePantsLarge})`], 
     [Tags.NEW]
   ),
   new Product(
@@ -55,7 +61,7 @@ export const products = [
     Colors.WHITE, 
     Sizes.MEDIUM, 
     'Casual white sneakers for women.', 
-    ['https://image6.jpg'], 
+    [`url(${WomensWhiteSneakersMedium})`], 
     [Tags.NEW, Tags.SALE]
   ),
   new Product(
@@ -68,12 +74,12 @@ export const products = [
     Colors.GREEN, 
     Sizes.LARGE, 
     'Comfortable green hoodie for men.', 
-    ['https://image7.jpg'], 
+    [`url(${MensGreenHoodieLarge})`], 
     [Tags.SALE]
   ),
   new Product(
     1006, 
-    'Kids’ Pink Skirt', 
+    'Girls’ Pink Skirt', 
     19.99, 
     120, 
     Categories.GIRLS, 
@@ -81,7 +87,7 @@ export const products = [
     Colors.PINK, 
     Sizes.SMALL, 
     'Cute pink skirt for girls.', 
-    ['https://image8.jpg'], 
+    [`url(${GirlsPinkSkirtSmall})`], 
     [Tags.NEW]
   ),
   new Product(
@@ -94,7 +100,7 @@ export const products = [
     Colors.BLACK, 
     Sizes.MEDIUM, 
     'A stylish black shirt for men.', 
-    ['https://image1.jpg', 'https://image2.jpg'], 
+    [`url(${MensBlackMediumShirt})`], 
     [Tags.NEW, Tags.SALE]
   ),
   new Product(
@@ -107,7 +113,7 @@ export const products = [
     Colors.RED, 
     Sizes.SMALL, 
     'A beautiful red dress.', 
-    ['https://image3.jpg', 'https://image4.jpg'], 
+    [`url(${WomensRedSmallShirt})`], 
     [Tags.SALE]
   ),
   new Product(
@@ -120,7 +126,7 @@ export const products = [
     Colors.BLUE, 
     Sizes.LARGE, 
     'Comfortable blue pants for kids.', 
-    ['https://image5.jpg'], 
+    [`url(${BoysBluePantsLarge})`], 
     [Tags.NEW]
   ),
   new Product(
@@ -133,8 +139,7 @@ export const products = [
     Colors.WHITE, 
     Sizes.MEDIUM, 
     'Casual white sneakers for women.', 
-    ['https://image6.jpg'], 
+    [`url(${WomensWhiteSneakersMedium})`], 
     [Tags.NEW, Tags.SALE]
-  ),
- 
+  )
 ];
