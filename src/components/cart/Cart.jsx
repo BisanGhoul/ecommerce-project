@@ -3,10 +3,12 @@ import { Button } from '@mui/material';
 import CartService from '../../services/cart.service';
 import './cartPage.css';
 import { useNavigate } from 'react-router-dom'; 
+import AuthPopup from '../authentication/AuthPopUp';
 
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [showPopup, setShowPopup] = useState(false);  
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -38,6 +40,7 @@ const Cart = () => {
     };
 
     const handleCheckout = () => {
+        if(localStorage.getItem('currentUser')){
         if (cartItems.length === 0) {
             const confirmRedirect = window.confirm("Your cart is empty. Would you like to go to the products page?");
             if (confirmRedirect) {
@@ -45,7 +48,11 @@ const Cart = () => {
             }
         } else {
             navigate('/checkout');
+        }  
+        }else{
+            setShowPopup(true);
         }
+  
     };
 
     if (loading) {
@@ -98,6 +105,7 @@ const Cart = () => {
                 <h2>Total Amount: ${getTotalAmount().toFixed(2)}</h2>
                 <Button onClick={handleCheckout}>Checkout</Button>
             </div>
+            {showPopup && <AuthPopup />}
         </div>
     );
 };

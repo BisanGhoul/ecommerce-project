@@ -5,6 +5,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { products } from '../../utils/product-data'; 
 import CartService  from '../../services/cart.service';
+import AuthPopup from '../authentication/AuthPopUp';
+
 const ProductDetails = () => {
   const { id } = useParams(); 
   const product = products.find((p) => p.id === parseInt(id)); 
@@ -21,6 +23,7 @@ const ProductDetails = () => {
   const [size, setSize] = useState(product.size[0]);
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState(product.colors[0]);
+  const [showPopup, setShowPopup] = useState(false);  
 
   const handleSizeChange = (event) => {
     setSize(event.target.value);
@@ -36,12 +39,17 @@ const ProductDetails = () => {
       ...product,
       size: size,
       quantity: quantity,
-      colors: [color]  // Add the selected color
+      colors: [color]  
     };
 
     try {
-      const updatedCart = await CartService.addToCart(productToAdd);
+      if(localStorage.getItem('currentUser')){
+              const updatedCart = await CartService.addToCart(productToAdd);
       console.log('Cart after adding product:', updatedCart);
+      }else{
+        setShowPopup(true);
+      }
+
     } catch (error) {
       console.error('Error adding to cart:', error);
     }
@@ -129,14 +137,13 @@ const ProductDetails = () => {
               <IconButton>
                 <FavoriteBorderIcon />
               </IconButton>
-              <IconButton>
-                <ShoppingCartIcon />
-              </IconButton>
+    
             </Box>
           </Grid>
         </Grid>
 
       </Box>
+      {showPopup && <AuthPopup />}
     </Box>
   );
 };

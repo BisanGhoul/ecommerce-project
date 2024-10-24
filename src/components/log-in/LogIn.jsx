@@ -131,6 +131,30 @@ const LogIn = () => {
                   Log In
                 </Button>
               </Grid>
+              <Grid item xs={12}>
+                <Divider sx={{ margin: '20px 0' }}>OR</Divider>
+              </Grid>
+
+              <Grid item xs={12} textAlign="center">
+                <Typography variant="body1">Don't have an account?</Typography>
+              </Grid>
+
+              <Grid item xs={12}>
+                <Button
+                  sx={{
+                    backgroundColor: 'primary.main',
+                    color: 'white',
+                    '&:hover': {
+                      backgroundColor: 'primary.dark',
+                    },
+                  }}
+                  variant="contained"
+                  fullWidth
+                  onClick={() => navigate('/sign-up')}
+                >
+                  Sign Up
+                </Button>
+              </Grid>
             </Grid>
           </form>
         </Box>

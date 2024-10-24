@@ -28,9 +28,9 @@ const App = () => {
     <Routes>
       <Route path="/no-access" element={<NoAccess />} />
       <Route path="/about-us" element={<AboutUsPage />} />
-      <Route path="/cart" element={
+      <Route path="/checkout" element={
           <ProtectedRoute>
-            <CartPage />
+            <CheckOutPage />
           </ProtectedRoute>
         }  />
       <Route path="/contact-us" element={<ContactUsPage />} />
@@ -44,7 +44,7 @@ const App = () => {
       <Route path="/sign-up/basic-info" element={<SignUpBasicInfoPage />} />
       <Route path="/sign-up/payment" element={<SignUpPaymentPage />} />
       <Route path="/Wishlist" element={<WishlistPage />} />
-      <Route path="/checkout" element={<CheckOutPage />} />
+      <Route path="/cart" element={<CartPage />} />
       <Route path="/pop-up" element={<AuthPopup />} />
       <Route path="*" element={<HomePage />} />
 
