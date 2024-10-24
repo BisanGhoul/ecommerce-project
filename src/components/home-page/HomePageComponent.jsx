@@ -18,6 +18,7 @@ const HomePageComponent = () => {
   return (
     <Box>
       <Box
+      
         sx={{
           minHeight: '90vh',
           display: 'flex',
@@ -43,6 +44,7 @@ const HomePageComponent = () => {
             Log in
           </Button>
         </Box>
+  
       </Box>
       <Container sx={{ py: 8 }}>
         <Typography variant="h4" sx={{ textAlign: 'center', mb: 5 }}>
@@ -75,12 +77,13 @@ const HomePageComponent = () => {
           <Typography variant="h4" sx={{ textAlign: 'center', mb: 5 }}>
             What Our Users Say
           </Typography>
+
           <Grid container spacing={4}>
             <Grid item xs={12} md={4}>
               <Card sx={{ textAlign: 'center' }}>
                 <CardContent>
                   <Avatar sx={{ margin: '0 auto', mb: 2 }}>A</Avatar>
-                  <Typography variant="h6">John Doe</Typography>
+                  <Typography variant="h6">Besan Goul</Typography>
                   <Typography variant="body2">"This let me wear the cidest, although I am a bussines man and dont have time."</Typography>
                 </CardContent>
               </Card>
@@ -89,7 +92,7 @@ const HomePageComponent = () => {
               <Card sx={{ textAlign: 'center' }}>
                 <CardContent>
                   <Avatar sx={{ margin: '0 auto', mb: 2 }}>B</Avatar>
-                  <Typography variant="h6">Jane Smith</Typography>
+                  <Typography variant="h6">Asmaa Abdellatif</Typography>
                   <Typography variant="body2">"I can't imagine wearing without it. Amazing experience!"</Typography>
                 </CardContent>
               </Card>
@@ -98,7 +101,7 @@ const HomePageComponent = () => {
               <Card sx={{ textAlign: 'center' }}>
                 <CardContent>
                   <Avatar sx={{ margin: '0 auto', mb: 2 }}>C</Avatar>
-                  <Typography variant="h6">Alex Brown</Typography>
+                  <Typography variant="h6">Yazan Kirresh</Typography>
                   <Typography variant="body2">"Great performance and support. Highly recommend!"</Typography>
                 </CardContent>
               </Card>
