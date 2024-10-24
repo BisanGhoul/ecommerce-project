@@ -9,7 +9,6 @@ const SortFilter = ({ sortBy, setSortBy }) => {
         <Select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
           <MenuItem value="lowToHigh">Price: Low to High</MenuItem>
           <MenuItem value="highToLow">Price: High to Low</MenuItem>
-          <MenuItem value="newest">Newest First</MenuItem>
         </Select>
       </FormControl>
     </Box>
