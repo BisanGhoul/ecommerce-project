@@ -1,5 +1,5 @@
 import React, {useContext } from 'react';
-import { Box, Button, TextField, Grid } from '@mui/material';
+import { Box, Button, TextField, Grid, Divider, Typography } from '@mui/material';
 import { useForm, Controller } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom'; 
 import { AuthContext  } from '../authentication/AuthContext.jsx'
@@ -150,7 +150,7 @@ const LogIn = () => {
                   }}
                   variant="contained"
                   fullWidth
-                  onClick={() => navigate('/sign-up')}
+                  onClick={() => navigate('/sign-up/basic-info')}
                 >
                   Sign Up
                 </Button>

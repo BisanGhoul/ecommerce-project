@@ -33,6 +33,16 @@ const App = () => {
             <CheckOutPage />
           </ProtectedRoute>
         }  />
+          {/* <Route path="/cart" element={
+          <ProtectedRoute>
+            <CartPage />
+          </ProtectedRoute>
+        }  />
+              <Route path="/profile" element={
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        }  /> */}
       <Route path="/contact-us" element={<ContactUsPage />} />
       <Route path="/favorites" element={<FavoritesPage />} />
       <Route path="/home" element={<HomePage />} />
@@ -44,7 +54,6 @@ const App = () => {
       <Route path="/sign-up/basic-info" element={<SignUpBasicInfoPage />} />
       <Route path="/sign-up/payment" element={<SignUpPaymentPage />} />
       <Route path="/Wishlist" element={<WishlistPage />} />
-      <Route path="/cart" element={<CartPage />} />
       <Route path="/pop-up" element={<AuthPopup />} />
       <Route path="*" element={<HomePage />} />
 

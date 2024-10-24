@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { AppBar, IconButton, Badge, Container, Menu, MenuItem, Typography, Divider, ListItemIcon } from '@mui/material';
 import { ShoppingCart as ShoppingCartIcon, Favorite as FavoriteIcon, AccountCircle as AccountCircleIcon, Login as LoginIcon, PersonAdd as PersonAddIcon } from '@mui/icons-material';
 import { useNavigate, Link } from 'react-router-dom'; 
+import AuthPopup from '../authentication/AuthPopUp';
 import CartService from '../../services/cart.service';
 
 const Header = () => {
   const navigate = useNavigate();
   const [numOfCartItems, setNumOfCartItems] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);  
 
   const handleProfileClick = (event) => {
-    // Toggle menu visibility based on whether it's already open (anchorEl is null or not)
+    
     setAnchorEl(prev => (prev ? null : event.currentTarget));
   };
 
@@ -21,7 +23,11 @@ const Header = () => {
 
   const profileClick = () => {
     handleCloseMenu();
-    navigate('/profile');
+    if(!isLoggedIn()){
+      setShowPopup(true);
+    }else{
+      navigate('/profile');  
+    }
   };
 
   useEffect(() => {
@@ -51,11 +57,11 @@ const Header = () => {
   };
 
   const cartClick = () => {
-    if(!isLoggedIn()){
-    navigate('/cart');
-    }else{
+    // if(!isLoggedIn()){
+    //   setShowPopup(true);
+    // }else{
       navigate('/cart');  
-    }
+    // }
   };
 
   const wishlistClick = () => {
@@ -140,6 +146,7 @@ const Header = () => {
           </div>
         </div>
       </Container>
+      {showPopup && <AuthPopup />}
     </AppBar>
   );
 };
