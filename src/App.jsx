@@ -1,7 +1,9 @@
 
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-
+import  ProtectedRoute from './components/authentication/ProtectedRoute'
+import  {AuthProvider} from './components/authentication/AuthContext'
+import AuthPopup from './components/authentication/AuthPopUp';
 import { 
     AboutUsPage, 
     AddProductPage, 
@@ -16,14 +18,21 @@ import {
     SignUpBasicInfoPage, 
     SignUpPaymentPage,
     WishlistPage,
-    CheckOutPage
+    CheckOutPage,
+    NoAccess
 } from './pages/index'; 
 
 const App = () => {
   return (
+    <AuthProvider>  
     <Routes>
+      <Route path="/no-access" element={<NoAccess />} />
       <Route path="/about-us" element={<AboutUsPage />} />
-      <Route path="/cart" element={<CartPage />} />
+      <Route path="/cart" element={
+          <ProtectedRoute>
+            <CartPage />
+          </ProtectedRoute>
+        }  />
       <Route path="/contact-us" element={<ContactUsPage />} />
       <Route path="/favorites" element={<FavoritesPage />} />
       <Route path="/home" element={<HomePage />} />
@@ -36,9 +45,11 @@ const App = () => {
       <Route path="/sign-up/payment" element={<SignUpPaymentPage />} />
       <Route path="/Wishlist" element={<WishlistPage />} />
       <Route path="/checkout" element={<CheckOutPage />} />
+      <Route path="/pop-up" element={<AuthPopup />} />
       <Route path="*" element={<HomePage />} />
 
     </Routes>
+    </AuthProvider>  
   );
   
 };

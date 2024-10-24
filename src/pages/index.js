@@ -12,7 +12,7 @@ import SignUpPaymentPage from "./SignUpPaymentInfoPage";
 import AddProductPage from "./AddProductPage";
 import WishlistPage from "./wishlistPage";
 import CheckOutPage from "./CheckoutPage";
-
+import NoAccess from './NoAccess';
 
 export {
     AboutUsPage,
@@ -28,5 +28,6 @@ export {
     SignUpPaymentPage,
     AddProductPage,
     WishlistPage,
-    CheckOutPage
+    CheckOutPage,
+    NoAccess
 };

@@ -1,18 +1,20 @@
-import React from 'react';
+import React, {useContext } from 'react';
 import { Box, Button, TextField, Grid } from '@mui/material';
 import { useForm, Controller } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom'; 
+import { AuthContext  } from '../authentication/AuthContext.jsx'
 import Header from '../header/Header.jsx';
 import LoginService from '../../services/login.service.js'; // Import the LoginService
 
 const LogIn = () => {
   const { handleSubmit, control, formState: { errors } } = useForm();
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   const onSubmit = async (data) => {
     try {
       const { email, password } = data; 
-      const response = await LoginService.login(email, password); 
+      const response = await login(email, password); //login from authentication context
       
       if (response.success) {
         console.log('Login successful:', response.user);

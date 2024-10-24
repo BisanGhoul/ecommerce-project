@@ -18,6 +18,7 @@ const Header = () => {
     setAnchorEl(null);
   };
 
+
   const profileClick = () => {
     handleCloseMenu();
     navigate('/profile');
@@ -45,8 +46,16 @@ const Header = () => {
     };
   }, []);
 
+  const isLoggedIn = () => {
+    return localStorage.getItem('currentUser') !== null;
+  };
+
   const cartClick = () => {
+    if(!isLoggedIn()){
     navigate('/cart');
+    }else{
+      navigate('/cart');  
+    }
   };
 
   const wishlistClick = () => {

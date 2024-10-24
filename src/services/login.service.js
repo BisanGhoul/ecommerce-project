@@ -21,17 +21,15 @@ class LoginService {
 
       if (user) {
         console.log('Login successful:', user);
-        localStorage.setItem('currentUser',JSON.stringify(userData) )
-        localStorage.setItem('currentUserCart',JSON.stringify(userData) )
+        // Store user info in localStorage
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        localStorage.setItem('currentUserCart', JSON.stringify([])); // Start with an empty cart
 
         return { success: true, user };
       } else {
         console.log('Invalid credentials');
         return { success: false, message: 'Invalid email or password.' };
       }
-      
-      // const response = await this.api.post('/login', { email, password });
-      // return response.data;
       
     } catch (error) {
       console.error('Error logging in user:', error);
