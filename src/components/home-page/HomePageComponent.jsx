@@ -37,7 +37,7 @@ const HomePageComponent = () => {
             Welcome to Our ChicVibe
           </Typography>
           <Typography variant="h6" sx={{ mb: 5 }}>
-            Discover the best way to shop stylish and with a modern and youthful feel.!
+            Discover the best way to shop a stylish with a modern and youthful feel !
           </Typography>
           <Button variant="contained" color="primary" sx={{ borderRadius: '20px', padding: '10px 20px' }} onClick={handleLoginClick}>
             Log in
