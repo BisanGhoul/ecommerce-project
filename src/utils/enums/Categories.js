@@ -3,5 +3,6 @@ export const Categories = Object.freeze({
     WOMEN: 'Women',
     BOYS: 'Boys',
     GIRLS: 'Girls',
+    BABIES: 'Babies' 
   });
   
