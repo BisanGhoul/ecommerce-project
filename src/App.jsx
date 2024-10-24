@@ -29,9 +29,9 @@ const App = () => {
       <Route path="/no-access" element={<NoAccess />} />
       <Route path="/about-us" element={<AboutUsPage />} />
       <Route path="/checkout" element={
-          <ProtectedRoute>
+          // <ProtectedRoute>
             <CheckOutPage />
-          </ProtectedRoute>
+          // </ProtectedRoute>
         }  />
           {/* <Route path="/cart" element={
           <ProtectedRoute>

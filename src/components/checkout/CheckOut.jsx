@@ -8,6 +8,7 @@ const Checkout = () => {
     const navigate = useNavigate();
     const [cartItems, setCartItems] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [showPopup, setShowPopup] = useState(false);  
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -33,9 +34,13 @@ const Checkout = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle order processing here
-        console.log("Order submitted:", formData, cartItems);
-        alert('Order placed successfully!');
+        if(localStorage.getItem('currentUser')){
+                console.log("Order submitted:", formData, cartItems);
+        alert('Order placed successfully!');    
+        }else{
+            setShowPopup(true);
+        }
+
     };
 
     const handleBackToCart = () => {
@@ -122,6 +127,8 @@ const Checkout = () => {
                     Back to Cart
                 </Button>
             </div>
+
+            {showPopup && <AuthPopup />}
         </div>
     );
 };
