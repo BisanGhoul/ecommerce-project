@@ -57,11 +57,11 @@ const Header = () => {
   };
 
   const cartClick = () => {
-    // if(!isLoggedIn()){
-    //   setShowPopup(true);
-    // }else{
+    if(!isLoggedIn()){
+      setShowPopup(true);
+    }else{
       navigate('/cart');  
-    // }
+    }
   };
 
   const wishlistClick = () => {

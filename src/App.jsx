@@ -43,6 +43,8 @@ const App = () => {
             <ProfilePage />
           </ProtectedRoute>
         }  /> */}
+              <Route path="/cart" element={<CartPage />} />
+
       <Route path="/contact-us" element={<ContactUsPage />} />
       <Route path="/favorites" element={<FavoritesPage />} />
       <Route path="/home" element={<HomePage />} />
